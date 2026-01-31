@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-export default function Mago3({ slides = [], gap = 30, peek = 40, aspect = "5/3", radius = 0, startIndex = 0 }) {
+export default function Mago3({ slides = [], gap = 30, peek = 40, aspect = "1/1", radius = 0, startIndex = 0 }) {
   // ...（スライダーの中身全部）
 
   const safe = useMemo(() => slides.filter(Boolean), [slides]);
@@ -145,12 +145,12 @@ export default function Mago3({ slides = [], gap = 30, peek = 40, aspect = "5/3"
   const pad2 = (n) => String(n).padStart(2, "0");
 
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <div className="relative">
         <div
           ref={scrollerRef}
           onScroll={onScroll}
-          className="roomsScroller md:max-h-full max-w-full max-w-[400px] max-h-[150px] overflow-x-auto overflow-y-hidden"
+          className="roomsScroller md:max-h-full max-w-full  overflow-x-auto overflow-y-hidden"
           style={{
             WebkitOverflowScrolling: "touch",
             scrollSnapType: "x mandatory",
@@ -180,7 +180,7 @@ export default function Mago3({ slides = [], gap = 30, peek = 40, aspect = "5/3"
                 key={`${s?.src || "x"}-${i}`}
                 style={{
                   width: `${cardW}px`,
-                  aspectRatio: aspect,
+                 height: `${cardW}px`,
                   scrollSnapAlign: "center",
                   borderRadius: r,
                   overflow: "hidden",
@@ -219,7 +219,7 @@ export default function Mago3({ slides = [], gap = 30, peek = 40, aspect = "5/3"
         <button
           type="button"
           onClick={() => go(-1)}
-          className="absolute md:left-60 md:top-90 left-20 top-45 h-11 w-11 rounded-full border border-black/20 bg-white/70 backdrop-blur"
+          className="absolute md:left-55 md:top-143 left-20 top-70 h-11 w-11 rounded-full border border-black/20 bg-white/70 backdrop-blur"
           aria-label="prev"
         >
           ←
@@ -227,7 +227,7 @@ export default function Mago3({ slides = [], gap = 30, peek = 40, aspect = "5/3"
         <button
           type="button"
           onClick={() => go(1)}
-          className="absolute md:right-60 md:top-90 right-20 top-45 h-11 w-11 rounded-full border border-black/20 bg-white/70 backdrop-blur"
+          className="absolute md:right-55 md:top-143 right-20 top-70 h-11 w-11 rounded-full border border-black/20 bg-white/70 backdrop-blur"
           aria-label="next"
         >
           →
