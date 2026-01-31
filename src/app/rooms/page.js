@@ -1,19 +1,21 @@
 "use client";
-import RoomsSliderNew from "@/app/components/RoomsSliderNew";
-
+import Mago2 from "@/app/components/Mago2";
+import Link from "next/link";
 
 const roomSlides = [
-  { src: "/images/room211.jpg", title: "外観", },
-  { src: "/images/room221.jpg", title: "リビング", },
-  { src: "/images/room231.jpg", title: "キッチン", },
-  { src: "/images/room241.jpg", title: "寝室",  },
+  { src: "/images/room21.jpg", title: "living", },
+  { src: "/images/room22.jpg", title: "betroom", },
+  { src: "/images/room23.jpg", title: "キッチン", },
+  { src: "/images/room24.jpg", title: "寝室",  },
+  { src: "/images/room25.jpg", title: "寝室",  },
+  { src: "/images/room26.jpg", title: "寝室",  },
 ];
 
 
 
 export default function RoomsPage() {
   const info = {
-    nameJa: "まごんどう",
+    nameJa: "まごんど",
     nameJaname: "MAGONI",
     catch: "和と現代が美しく調和する隠れ家",
     lead:"蔵ならではの趣と、現代的な美しさが調和した和モダン空間。広がりのある間取りとやわらかな光に包まれて、大切な人と過ごす時間が、自然と深まります。一棟貸しのコンドミニアムで、日常を少し離れた、くつろぎのひとときを。",
@@ -24,7 +26,11 @@ export default function RoomsPage() {
     capacity: "1〜2名",
     layout: "1LDK",
     area: "100㎡",
-    image: "/images/about_magondo23.jpg",
+    image: "/images/magondo222.jpg",
+    bet1: "シングル×2、",
+    bet2: "シングル×3、",
+    bath: "1",
+     bathトイレ: "それぞれ独立",
     rooms: [
       { label: "寝室", value: "1（シングル×2）" },
       { label: "浴室", value: "1" },
@@ -53,7 +59,7 @@ export default function RoomsPage() {
     houseRules: [
       { label: "ペット", value: "不可" },
       { label: "喫煙", value: "不可" },
-      { label: "イベント・パーティ", value: "不可" },
+      { label: "イベント・パーティ", value: "可" },
     ],
     bookingUrl: "https://vacation-stay.jp/listings/666651?adults=2",
     telUrl: "tel:0000000000",
@@ -81,12 +87,6 @@ export default function RoomsPage() {
 "ヘアドライヤー",
 "畳",
  "コンロ",
-    
-    
-    
-    
-    
-    
   ];
 
   // ミニマル版：箱なし
@@ -106,14 +106,15 @@ export default function RoomsPage() {
   );
 
   return (
+    
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       {/* 上の装飾ライン：不要なら消してOK */}
       <div className="h-px w-full bg-neutral-200" />
 
-      <header className="sticky top-0 z-50 bg-neutral-50/85 backdrop-blur border-b border-neutral-200">
-        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+     <header className="sticky top-0 z-50 bg-neutral-50/85 backdrop-blur border-b border-neutral-200">
+        <div className="mx-auto max-w-6xl px-4 py-2 md:py-3 flex items-center justify-between">
           <div className="flex items-baseline gap-3">
-            <span className="text-sm font-semibold text-neutral-900">宿について</span>
+            <span className="text-sm md:text-xl font-semibold text-neutral-900">kakurega</span>
             <span className="hidden sm:inline text-[11px] tracking-[0.28em] text-neutral-500">
               MAGONDO
             </span>
@@ -122,26 +123,43 @@ export default function RoomsPage() {
           <div className="flex items-center gap-3">
             <a
               href={info.bookingUrl}
-              className="hidden sm:inline-flex items-center border border-neutral-900 px-4 py-2 text-xs font-semibold hover:bg-neutral-900 hover:text-white transition"
+              className="hidden sm:inline-flex py-1 text-center text-sm tracking-widest text-neutral-900 ml-7 md:ml-3 hover:bg-neutral-100 transition underline"
             >
               ネット予約
             </a>
             <a
               href={info.telUrl}
-              className="hidden sm:inline-flex items-center border border-neutral-300 px-4 py-2 text-xs font-semibold hover:bg-neutral-100 transition"
+              className="hidden sm:inline-flex py-1 text-center text-sm tracking-widest ml-7 md:ml-3 text-neutral-900 hover:bg-neutral-100 transition underline"
             >
               電話
             </a>
-            <a href="/" className="text-sm underline text-neutral-700 hover:text-neutral-900">
-              ← トップへ戻る
-            </a>
+           <div className="grid grid-cols-3 gap-3 items-center ">
+      <Link
+        href="/dining"
+        className="py-1 text-center text-sm tracking-widest ml-7 md:ml-3 text-neutral-900 hover:bg-neutral-100 transition underline"
+      >
+        MAGOICHI
+      </Link>
+     
+      <Link
+        href="/sightseeing"
+        className="py-1 text-center text-sm tracking-widest ml-7 md:ml-3 text-neutral-900 hover:bg-neutral-100 transition underline"
+      >
+        MAGOSAN
+      </Link>
+       <Link href="/" className="py-1 text-center text-sm tracking-widest ml-7 md:ml-3 text-neutral-900 hover:bg-neutral-100 transition underline">
+         HOME
+            </Link>
+    </div>
+
           </div>
         </div>
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
+        
         {/* HERO */}
-        <section className="mt-0 md:-mt-24 min-h-[70svh] w-full flex items-center pb-10">
+        <section className="-mt-10 md:-mt-24 min-h-[70svh] w-full flex items-center pb-10">
           <div className="mx-auto w-full max-w-6xl">
             <div className="grid grid-cols-12 items-center gap-8 mt-0">
               {/* 左：テキスト */}
@@ -165,7 +183,7 @@ export default function RoomsPage() {
                     max-w-none
                     aspect-[19/10] 
                     overflow-hidden
-                   -mt-38
+                   -mt-33
                     z-10
                   "
                 >
@@ -176,12 +194,12 @@ export default function RoomsPage() {
                   />
                 </div>
 
-                <h2 className="z-2 font-serif mt-7 md:mt-10 text-2xl sm:text-4xl font-semibold text-neutral-900">
+                <h2 className="z-2 font-serif mt-5 md:mt-10 text-2xl sm:text-4xl font-semibold text-neutral-900">
                   {info.nameJaname}
                 </h2>
                 
                
-                <p className="font-serif md:mt-5 mt-0 md:text-lg text-lg text-neutral-700">
+                <p className="font-serif md:mt-5 mt-3 md:text-lg text-lg text-neutral-700">
                   {info.catch}
                 </p>
                 
@@ -199,6 +217,8 @@ export default function RoomsPage() {
                     予約する
                   </a>
                 </div>
+                
+
                 {/* 固定CTA：予約する（スクロールしても常に表示） */}
 <div className="fixed inset-x-0 bottom-0 z-50 p-3 sm:hidden">
   <a
@@ -207,6 +227,7 @@ export default function RoomsPage() {
   >
     予約する
   </a>
+  
 </div>
 
                 {/* 主要スペック（箱なし） */}
@@ -250,11 +271,12 @@ export default function RoomsPage() {
          <section className="hidden md:block -mt-10 md:mt-12 ">
  <div className="mx-auto w-full max-w-6xl px-6 ">
   <div className="flex flex-col md:flex-row items-center gap-3">
-    <div className="md:w-2/3 w-full ">
-      <RoomsSliderNew slides={roomSlides} peek={48} />
-    </div>
-
-    <div className="md:w-1/3 w-full text-center ml-5">
+    <div className="w-full">
+  <div className="aspect-square w-full max-w-[620px] mx-auto md:mx-0">
+    <Mago2 slides={roomSlides} peek={48} aspect="1/1" />
+  </div>
+</div>
+    <div className="md:w-2/3 w-full text-center ml-5">
       <h2 className="font-serif text-4xl font-semibold mb-3 text-center">{info.nameJaname}</h2>
       <p className="font-serif text-neutral-600 leading-relaxed text-center tracking-[-0.04em] ">
         古い蔵をモダンな雰囲気に改装した、
@@ -269,56 +291,53 @@ export default function RoomsPage() {
           
         </section>
          {/* スライダー横：テキスト */}
-         <section className="md:hidden block -mt-10 md:mt-12 ">
+      {/* スライダー横：テキスト（モバイル） */}
+<section className="md:hidden block -mt-10">
+  <div className="px-4">
+    <h2 className="font-serif text-3xl font-semibold text-center">
+      {info.nameJaname}
+    </h2>
 
-  
-  <div className="">
-    <div className="">
-      <h2 className="font-serif text-4xl font-semibold mb-3 text-center">{info.nameJaname}</h2>
-      <div className="md:w-2/3 w-full ">
-      <RoomsSliderNew slides={roomSlides} peek={48} />
+    {/* 正方形の箱 */}
+    <div className="mt-3 aspect-square w-full max-w-[620px] mx-auto overflow-hidden">
+      <Mago2 slides={roomSlides} peek={48} aspect="1/1" />
     </div>
-      <p className="mt-3 font-serif text-neutral-600 leading-relaxed text-center tracking-[-0.04em] ">
-        畳の香りに包まれた静かな一棟貸し空間。
-      </p>
-      <p className="font-serif tracking-[-0.04em] text-neutral-600 leading-relaxed text-center">
-        季節の光と風を感じながらお過ごしください。
-      </p>
-    </div>
-   
+
+    <div className="mt-5 h-px w-24 bg-neutral-200 mx-auto" />
+
+    <p className="mt-5 font-serif text-neutral-600 leading-relaxed text-center tracking-[-0.04em]">
+      畳の香りに包まれた静かな一棟貸し空間。
+    </p>
+    <p className="font-serif tracking-[-0.04em] text-neutral-600 leading-relaxed text-center">
+      季節の光と風を感じながらお過ごしください。
+    </p>
   </div>
+</section>
 
-
-          
-        </section>
-
-        {/* DETAILS */}
+        {/* AMENITIES */}
         <section className="mt-10">
-          <SectionTitle en="DETAILS" ja="お部屋の情報" />
+          <SectionTitle en="AMENITIES" ja="設備・アメニティ" />
 
-          <div className="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 border-t border-neutral-200 pt-6">
-            <Stat label="施設タイプ" value="和風の一棟貸しコンドミニアム" />
-             <Stat label="チェックイン" value={info.checkin} />
-                  <Stat label="チェックアウト" value={info.checkout} />
-            
-            {info.rooms.map((r) => (
-              <Stat key={r.label} label={r.label} value={r.value} />
-            ))}
-            <Stat label="料金" value={info.price} />
-            <Stat label="住所" value={info.address} />
-          </div>
-
-          <div className="mt-6 border-t border-neutral-200 pt-6">
-            <div className="text-sm font-semibold text-neutral-900">補足</div>
-            <ul className="mt-3 space-y-2 text-sm text-neutral-700">
-              {info.notes.map((n) => (
-                <li key={n}>{n}</li>
+          <div className="border-t border-neutral-200 pt-6">
+            <div className="grid gap-x-8 gap-y-2 grid-cols-1 md:grid-cols-3">
+              {amenities.map((a) => (
+                <div key={a} className="text-sm text-neutral-700">
+                  {a}
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
+          {/* 主要スペック（箱なし） */}
+                <div className="md:mt-0 mt-0 grid gap-8  border-neutral-200 pt-6 grid-cols-3">
+         <Stat label="寝室１" value={info.bet1} />
+                 
+                 <Stat label="バス・トイレ" value={info.bathトイレ} />
+                
+                 
+                </div>
         </section>
 
-        {/* CAFE */}
+ {/* CAFE */}
         <section className="mt-10">
           <SectionTitle en="CAFE" ja="カフェ情報" />
 
@@ -334,22 +353,7 @@ export default function RoomsPage() {
             ))}
           </div>
         </section>
-
-        {/* AMENITIES */}
-        <section className="mt-10">
-          <SectionTitle en="AMENITIES" ja="設備・アメニティ" />
-
-          <div className="border-t border-neutral-200 pt-6">
-            <div className="grid gap-x-8 gap-y-2 grid-cols-1 md:grid-cols-3">
-              {amenities.map((a) => (
-                <div key={a} className="text-sm text-neutral-700">
-                  {a}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
+        
         {/* POLICY */}
         <section className="mt-10">
           <SectionTitle en="POLICY" ja="滞在・料金・ルール" />

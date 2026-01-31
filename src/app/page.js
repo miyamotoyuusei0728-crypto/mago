@@ -26,7 +26,7 @@ const introSlides = [
     textOffsetY: -160,
   },
   {
-    src: "/images/rooms_v1.png",
+    src: "/images/rooms_v1.jpg",
     title: "MAGONI",
     textPosition: "center",
     textOffset: 0,
@@ -43,9 +43,9 @@ const introSlides = [
 ];
 
 const aboutSlides = [
-  { src: "/images/rooms/room-01.jpg", alt: "room 01", title: "KURA" },
-  { src: "/images/rooms/room-02.jpg", alt: "room 02", title: "NI" },
-  { src: "/images/rooms/room-03.jpg", alt: "room 03", title: "SAN" },
+  { src: "/images/room-01.jpg", alt: "room 01", title: "KURA" },
+  { src: "/images/room-02.jpg", alt: "room 02", title: "NI" },
+  { src: "/images/room-03.jpg", alt: "room 03", title: "SAN" },
 ];
 
 
@@ -126,18 +126,6 @@ const aboutSlides = [
               alt=""
               className="block w-full h-auto object-contain object-top"
               style={{ marginTop: "0vh" }}
-            />
-            <img
-              src="/images/brush_2.png"
-              alt=""
-              className="block w-full h-auto object-contain"
-              style={{ marginTop: "-10vh" }}
-            />
-            <img
-              src="/images/brush_3.png"
-              alt=""
-              className="block w-full h-auto object-contain"
-              style={{ marginTop: "-10vh" }}
             />
           </div>
         </div>
@@ -515,9 +503,9 @@ const aboutSlides = [
     </p>
       
 
-      <div className="relative w-full max-w-[150px] md:max-w-none md:w-[300px] h-[200px] md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+      <div className="relative w-full max-w-[150px] md:max-w-none md:w-[300px] h-[150px] md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)] rounded-2xl">
         <img
-          src="/images/rooms_v1.png"
+          src="/images/mago1.jpg"
           alt="客室について"
           className="
             h-full w-full object-cover
@@ -558,9 +546,9 @@ const aboutSlides = [
      ---NI---
     </p>
 
-      <div className="relative w-full max-w-[150px] md:max-w-none md:w-[300px] h-[200px] md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+      <div className="relative w-full max-w-[150px] md:max-w-none md:w-[300px] h-[150px] md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)] rounded-2xl">
         <img
-          src="/images/sightseeing_v1.jpg"
+          src="/images/mago2.jpg"
           alt="カフェについて"
           className="
             h-full w-full object-cover
@@ -601,9 +589,9 @@ const aboutSlides = [
       ---SAN---
     </p>
 
-      <div className="relative w-full max-w-[150px] md:max-w-none md:w-[300px] h-[200px] md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+      <div className="relative w-full max-w-[150px] md:max-w-none md:w-[300px] h-[150px] md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)] rounded-2xl ">
         <img
-          src="/images/dining_v1.jpg"
+          src="/images/mago3.jpg"
           alt="周辺について"
           className="
             h-full w-full object-cover
@@ -649,7 +637,7 @@ const aboutSlides = [
       <div className="md:pl-6">
         <div className="w-screen -mx-4 md:mr-auto md:w-full max-w-[1100px] aspect-[19/6] md:aspect-[5/3] overflow-hidden rounded-none shadow-lg">
           <img
-            src="/images/about_magondo3.jpg"
+            src="/images/room21.jpg"
             alt="蔵の宿 MAGONDO"
             className="w-full h-full object-cover object-center"
           />
