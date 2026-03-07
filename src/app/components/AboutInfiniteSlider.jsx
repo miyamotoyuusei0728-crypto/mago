@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
  * - センターにスナップ（scroll-snap）
  * - 矢印で1枚ずつ（scrollBy + step計測）
  */
-export default function AboutInfiniteSlider({
+export default function AboutDesktopSlider({
   slides = [],
   gapPx = 16,
   cardRatio = 0.86,
@@ -41,14 +41,14 @@ export default function AboutInfiniteSlider({
 
   const radiusClass =
     radius === "none"
-      ? "rounded-none"
+      ? "-none"
       : radius === "lg"
-      ? "rounded-lg"
+      ? "-lg"
       : radius === "xl"
-      ? "rounded-xl"
+      ? "-xl"
       : radius === "3xl"
-      ? "rounded-3xl"
-      : "rounded-2xl";
+      ? "-3xl"
+      : "-2xl";
 
   const getCards = () => {
     const track = trackRef.current;
@@ -240,29 +240,27 @@ export default function AboutInfiniteSlider({
       </div>
 
       {/* 下のタイトル + 矢印 + ページ数 */}
-      <div className="pt-6 pb-4 text-center">
-        <p className="text-[15px] tracking-[0.12em] text-neutral-900/90 transition-all duration-300">
-          {safe[active]?.title || ""}
-        </p>
+      <div className="pt-0 pb-5 text-center">
+        
 
-        <div className="mt-4 flex items-center justify-center gap-10">
+        <div className="mt-3 flex items-center justify-center gap-10">
           <button
             type="button"
             onClick={() => moveBy(-1)}
-            className="h-10 w-10 rounded-full border border-black/10 bg-white/60 backdrop-blur-sm text-xl leading-none hover:bg-white/80 active:scale-95 transition"
+            className="text-xl text-white"
             aria-label="prev"
           >
             ←
           </button>
 
-          <p className="text-[11px] tracking-[0.28em] text-neutral-800/80">
-            {pad2(active + 1)} / {pad2(len)}
-          </p>
+          <p className="text-[15px] tracking-[0.12em] text-white transition-all duration-300">
+          {safe[active]?.title || ""}
+        </p>
 
           <button
             type="button"
             onClick={() => moveBy(1)}
-            className="h-10 w-10 rounded-full border border-black/10 bg-white/60 backdrop-blur-sm text-xl leading-none hover:bg-white/80 active:scale-95 transition"
+            className="text-xl text-white"
             aria-label="next"
           >
             →
