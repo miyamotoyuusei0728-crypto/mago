@@ -5,3 +5,5 @@ out
 .env.local
 .DS_Store
 .vercel
+public/images/**/*.pdf
+public/images/*.pdf
