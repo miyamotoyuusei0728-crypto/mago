@@ -7,3 +7,4 @@ out
 .vercel
 public/images/**/*.pdf
 public/images/*.pdf
+*.pdf
