@@ -13,7 +13,7 @@ import NewsSection from "./components/NewsSection";
  * MAGONDO – KAKUREGA STAY (single-file / stable responsive)
  * - 臙脂×ゴールド×黒
  * - 固定px依存を md: 以上に寄せ、モバイルは“崩れない配置”を優先
- * - id重複なし / 存在しないTailwindクラス排除 / PDF img対策コメント入り
+ * - id重複なし 
  * - app/page.js にそのまま貼り替えOK
  */
 // ✅ 追加：ファーストビュー表紙（スクロールでふわっと消える）
@@ -73,7 +73,7 @@ function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.
       }}
       onClick={close}
       onTouchEnd={(e) => {
-        e.preventDefault(); // iOSでの変な挙動防止
+        e.preventDefault(); // iOSでの挙動防止
         close();
       }}
     >
