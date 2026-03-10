@@ -170,9 +170,9 @@ const introSlides = [
 ];
 
 const aboutSlides = [
-  { src: "/images/room-01.jpg", alt: "room 01", title: "KURA" },
-  { src: "/images/room-02.jpg", alt: "room 02", title: "NI" },
-  { src: "/images/room-03.jpg", alt: "room 03", title: "SAN" },
+  { src: "/images/room-011.jpg", alt: "room 01", title: "KURA" },
+  { src: "/images/room-022.jpg", alt: "room 02", title: "NI" },
+  { src: "/images/room-033.jpg", alt: "room 03", title: "SAN" },
 ];
 
 
