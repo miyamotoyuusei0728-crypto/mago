@@ -25,17 +25,36 @@ export default function Site() {
     window.history.scrollRestoration = "manual";
   }
 
-
+  // URLに #hash が無いなら、必ずトップへ
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
 }, []);
 function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.svg" }) {
 
   const [done, setDone] = useState(false);
   const [leaving, setLeaving] = useState(false); // フェード用
 
+
+  useEffect(() => {
+    const seen = sessionStorage.getItem("coverSeen");
+
+    if (seen === "1") {
+      setDone(true);
+    }
+
+    // リロード時はcoverSeenを消す
+    const nav = performance.getEntriesByType("navigation")[0];
+
+    if (nav && nav.type === "reload") {
+      sessionStorage.removeItem("coverSeen");
+    }
+  }, []);
+
+
   useEffect(() => {
     if (done) return;
 
-    // 表紙中は本体スクロールをロック
     const prevOverflow = document.documentElement.style.overflow;
     const prevBodyOverflow = document.body.style.overflow;
     const prevOverscroll = document.body.style.overscrollBehavior;
@@ -51,12 +70,14 @@ function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.
     };
   }, [done]);
 
-  const close = () => {
-    if (leaving || done) return;
-    setLeaving(true);
-    // フェードアウトしてから消す
-    window.setTimeout(() => setDone(true), 220);
-  };
+ const close = () => {
+  if (leaving || done) return;
+  setLeaving(true);
+
+  sessionStorage.setItem("coverSeen", "1");
+
+  window.setTimeout(() => setDone(true), 220);
+};
 
   if (done) return null;
 
