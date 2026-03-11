@@ -186,10 +186,8 @@ const aboutSlides = [
   // nav items（IDは必ずユニーク）
   const navItems = useMemo(
     () => [
-      { href: "#intro", label: "特徴" },
-      { href: "#about", label: "お部屋" },
-      { href: "#experience", label: "体験" },
-      { href: "#gallery", label: "ギャラリー" },
+      { href: "#experience", label: "お部屋" },
+      { href: "#experience-more", label: "NEWS" },
       { href: "#access", label: "アクセス" },
       { href: "#faq", label: "FAQ" },
     ],
