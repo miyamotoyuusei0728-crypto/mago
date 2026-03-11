@@ -17,7 +17,7 @@ import NewsSection from "./components/NewsSection";
  * - app/page.js にそのまま貼り替えOK
  */
 // ✅ 追加：ファーストビュー表紙（スクロールでふわっと消える）
-
+let hasSeenCoverInThisSession = false;
 export default function Site() {
   useEffect(() => {
   // ブラウザのスクロール復元を止める（特にSafari対策）
@@ -32,7 +32,7 @@ export default function Site() {
 }, []);
 function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.svg" }) {
 
-  const [done, setDone] = useState(false);
+ const [done, setDone] = useState(hasSeenCoverInThisSession);
   const [leaving, setLeaving] = useState(false); // フェード用
 
   useEffect(() => {
@@ -42,7 +42,10 @@ function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.
     const prevOverflow = document.documentElement.style.overflow;
     const prevBodyOverflow = document.body.style.overflow;
     const prevOverscroll = document.body.style.overscrollBehavior;
-
+const closeCover = () => {
+  hasSeenCoverInThisSession = true;
+  setDone(true);
+};
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
     document.body.style.overscrollBehavior = "none";
