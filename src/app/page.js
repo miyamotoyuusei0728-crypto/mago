@@ -240,7 +240,13 @@ const aboutSlides = [
 
 return (
   <>
-    <Cover ENJI={ENJI} bgImage="/images/introne1.jpg" />
+   {!done && (
+  <Cover
+    ENJI={ENJI}
+    bgImage="/images/introne1.jpg"
+    close={closeCover}
+  />
+)}
     
 
     <div className="min-h-screen text-neutral-900 selection:bg-[#9E1B21]/20 selection:text-[#0B0B0B]">
