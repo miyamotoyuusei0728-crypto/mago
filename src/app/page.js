@@ -7,37 +7,58 @@ import MobileInfinitePeekSlider from "./components/MobileInfinitePeekSlider";
 import AboutInfiniteSlider from "./components/AboutInfiniteSlider";
 import NewsSection from "./components/NewsSection";
 
-/**
- * このタブ内で一度でも表紙を閉じたら true
- * リロードすると false に戻る
- */
-let hasSeenCoverInThisSession = false;
 
-/* =========================
-   Cover
-========================= */
-function Cover({
-  bgImage = "/images/introne1.jpg",
-  logoSrc = "/images/logo.svg",
-  close,
-  leaving,
-}) {
+
+/**
+ * MAGONDO – KAKUREGA STAY (single-file / stable responsive)
+ * - 臙脂×ゴールド×黒
+ * - 固定px依存を md: 以上に寄せ、モバイルは“崩れない配置”を優先
+ * - id重複なし 
+ * - app/page.js にそのまま貼り替えOK
+ */
+// ✅ 追加：ファーストビュー表紙（スクロールでふわっと消える）
+
+export default function Site() {
   useEffect(() => {
-    // 表紙表示中はスクロールをロック
-    const prevHtmlOverflow = document.documentElement.style.overflow;
+  // ブラウザのスクロール復元を止める（特にSafari対策）
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+
+
+}, []);
+function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.svg" }) {
+
+  const [done, setDone] = useState(false);
+  const [leaving, setLeaving] = useState(false); // フェード用
+
+  useEffect(() => {
+    if (done) return;
+
+    // 表紙中は本体スクロールをロック
+    const prevOverflow = document.documentElement.style.overflow;
     const prevBodyOverflow = document.body.style.overflow;
-    const prevBodyOverscroll = document.body.style.overscrollBehavior;
+    const prevOverscroll = document.body.style.overscrollBehavior;
 
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
     document.body.style.overscrollBehavior = "none";
 
     return () => {
-      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.documentElement.style.overflow = prevOverflow;
       document.body.style.overflow = prevBodyOverflow;
-      document.body.style.overscrollBehavior = prevBodyOverscroll;
+      document.body.style.overscrollBehavior = prevOverscroll;
     };
-  }, []);
+  }, [done]);
+
+  const close = () => {
+    if (leaving || done) return;
+    setLeaving(true);
+    // フェードアウトしてから消す
+    window.setTimeout(() => setDone(true), 220);
+  };
+
+  if (done) return null;
 
   return (
     <div
@@ -49,7 +70,7 @@ function Cover({
       }}
       onClick={close}
       onTouchEnd={(e) => {
-        e.preventDefault();
+        e.preventDefault(); // iOSでの挙動防止
         close();
       }}
     >
@@ -75,9 +96,7 @@ function Cover({
                   }}
                 />
                 <div className="text-white">
-                  <p className="text-xs tracking-[0.35em] opacity-80">
-                    KAKUREGA STAY
-                  </p>
+                  <p className="text-xs tracking-[0.35em] opacity-80">KAKUREGA STAY</p>
                   <h1 className="mt-1 text-3xl md:text-5xl font-serif font-light tracking-[0.08em]">
                     MAGONDO
                   </h1>
@@ -90,10 +109,12 @@ function Cover({
                 北前船の物語が息づく、海辺の小さな宿
               </p>
 
+              {/* ここだけ文言変更 */}
               <p className="mt-10 text-white/70 text-xs tracking-[0.3em]">
                 TAP TO ENTER
               </p>
             </div>
+            
 
             <div className="hidden md:flex justify-end">
               <div
@@ -119,49 +140,47 @@ function Cover({
     </div>
   );
 }
-
-/* =========================
-   Site
-========================= */
-export default function Site() {
-  const [done, setDone] = useState(hasSeenCoverInThisSession);
-  const [leaving, setLeaving] = useState(false);
   const [open, setOpen] = useState(false);
+const introSlides = [
+  {
+    src: "/images/about_magondo2.jpg",
+    title: "MAGOICHI",
+    textPosition: "center",
+    textOffset: 0,
+    textOffsetY: -160,
+  },
+  {
+    src: "/images/rooms_v1.jpg",
+    title: "MAGONI",
+    textPosition: "center",
+    textOffset: 0,
+    textOffsetY: -160,
+  },
+  {
+    src: "/images/dining_v1.jpg",
+    title: "MAGOSANN",
+    textPosition: "center",
+    textOffset: 0,
+    textOffsetY: -15,
+  },
+  
+];
 
-  const introSlides = [
-    {
-      src: "/images/about_magondo2.jpg",
-      title: "MAGOICHI",
-      textPosition: "center",
-      textOffset: 0,
-      textOffsetY: -160,
-    },
-    {
-      src: "/images/rooms_v1.jpg",
-      title: "MAGONI",
-      textPosition: "center",
-      textOffset: 0,
-      textOffsetY: -160,
-    },
-    {
-      src: "/images/dining_v1.jpg",
-      title: "MAGOSANN",
-      textPosition: "center",
-      textOffset: 0,
-      textOffsetY: -15,
-    },
-  ];
+const aboutSlides = [
+  { src: "/images/room-0111.jpg", alt: "room 01", title: "KURA" },
+  { src: "/images/room-0222.jpg", alt: "room 02", title: "NI" },
+  { src: "/images/room-0333.jpg", alt: "room 03", title: "SAN" },
+];
 
-  const aboutSlides = [
-    { src: "/images/room-0111.jpg", alt: "room 01", title: "KURA" },
-    { src: "/images/room-0222.jpg", alt: "room 02", title: "NI" },
-    { src: "/images/room-0333.jpg", alt: "room 03", title: "SAN" },
-  ];
 
-  const ENJI = "#9E1B21";
-  const GOLD = "#D4AF37";
-  const INK = "#0B0B0B";
 
+
+  // 色（任意）
+  const ENJI = "#9E1B21"; // 臙脂
+  const GOLD = "#D4AF37"; // ゴールド
+  const INK = "#0B0B0B"; // 黒に近い
+
+  // nav items（IDは必ずユニーク）
   const navItems = useMemo(
     () => [
       { href: "#experience", label: "お部屋" },
@@ -172,282 +191,318 @@ export default function Site() {
     []
   );
 
-  const closeCover = () => {
-    if (leaving || done) return;
+  // スムーススクロール（ヘッダー高さを“実測”してズレを防ぐ）
+ useEffect(() => {
+  const forceTop = () => {
+    // hash付き直リンク（#aboutとか）だけは尊重
+    if (window.location.hash) return;
 
-    setLeaving(true);
-
-    window.setTimeout(() => {
-      hasSeenCoverInThisSession = true;
-      setDone(true);
-      setLeaving(false);
-    }, 220);
+    // Safariの復元に勝つために「複数回」上書き
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    setTimeout(() => window.scrollTo(0, 0), 0);
+    setTimeout(() => window.scrollTo(0, 0), 50);
+    setTimeout(() => window.scrollTo(0, 0), 200);
   };
 
-  useEffect(() => {
-    const forceTop = () => {
-      if (window.location.hash) return;
+  // 可能なら復元OFF
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
 
-      window.scrollTo(0, 0);
-      requestAnimationFrame(() => window.scrollTo(0, 0));
-      setTimeout(() => window.scrollTo(0, 0), 0);
-      setTimeout(() => window.scrollTo(0, 0), 50);
-      setTimeout(() => window.scrollTo(0, 0), 200);
-    };
+  // 通常ロード
+  forceTop();
 
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
+  // bfcache復元（Safariがここで勝手にスクロール戻す）
+  window.addEventListener("pageshow", forceTop);
 
-    forceTop();
-    window.addEventListener("pageshow", forceTop);
+  return () => {
+    window.removeEventListener("pageshow", forceTop);
+  };
+}, []);
 
-    return () => {
-      window.removeEventListener("pageshow", forceTop);
-    };
-  }, []);
-
+  // md以上になったらモバイルdrawerを閉じる（回転/リサイズ対策）
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
     const onChange = () => {
       if (mq.matches) setOpen(false);
     };
-
     onChange();
     mq.addEventListener?.("change", onChange);
-
     return () => mq.removeEventListener?.("change", onChange);
   }, []);
 
-  return (
-    <>
-      {!done && (
-        <Cover
-          bgImage="/images/introne1.jpg"
-          logoSrc="/images/logo.svg"
-          close={closeCover}
-          leaving={leaving}
-        />
-      )}
+return (
+  <>
+    <Cover ENJI={ENJI} bgImage="/images/introne1.jpg" />
+    
 
-      <div className="min-h-screen text-neutral-900 selection:bg-[#9E1B21]/20 selection:text-[#0B0B0B]">
-        {/* === Global Brush Background === */}
-        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none select-none">
-          <img
-            src="/images/intro_bg1.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/15" />
-          <div
-            className="
-              pointer-events-none
-              absolute inset-0
-              z-0
-              bg-gradient-to-b
-              from-neutral-900/80
-              via-neutral-900/40
-              to-transparent
-            "
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
+    <div className="min-h-screen text-neutral-900 selection:bg-[#9E1B21]/20 selection:text-[#0B0B0B]">
+      {/* === Global Brush Background (軽量化：モバイルは1枚 / md以上は縦チェーン) === */}
+     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none select-none">
+
+  {/* ===== 背景画像（全面） ===== */}
+  <img
+    src="/images/intro_bg1.jpg"
+    alt=""
+    className="
+       w-full h-full object-cover
+    "
+  />
+  <div className="absolute inset-0 bg-black/15" />
+<div
+      className="
+        pointer-events-none
+        absolute inset-0
+        z-0
+        bg-gradient-to-b
+        from-neutral-900/80
+        via-neutral-900/40
+        to-transparent
+      "
+    />
+  {/* ===== 下フェード ===== */}
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
+
+
+
+      </div>
+
+      {/* Header */}
+      <header
+        data-site-header="1"
+        className="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-neutral-200 supports-[backdrop-filter]:bg-white/60"
+      >
+        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span
+              className="inline-flex h-9 w-9 rounded-2xl"
+              style={{ background: `linear-gradient(135deg, ${ENJI}, ${INK})` }}
+            />
+            <p className="font-semibold tracking-wide">
+              MAGONDO{" "}
+              <span className="text-neutral-400">— KAKUREGA STAY —</span>
+            </p>
+          </div>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="hover:opacity-70 transition"
+                rel="nofollow"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="#booking"
+              className="hidden sm:inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium text-white shadow-sm ring-1 ring-black/5 hover:shadow transition"
+              style={{ background: ENJI }}
+            >
+              空室確認・予約
+            </a>
+            <button
+              className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-300"
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Open menu"
+            >
+              ☰
+            </button>
+          </div>
         </div>
 
-        {/* Header */}
-        <header
-          data-site-header="1"
-          className="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-neutral-200 supports-[backdrop-filter]:bg-white/60"
-        >
-          <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span
-                className="inline-flex h-9 w-9 rounded-2xl"
-                style={{ background: `linear-gradient(135deg, ${ENJI}, ${INK})` }}
-              />
-              <p className="font-semibold tracking-wide">
-                MAGONDO <span className="text-neutral-400">— KAKUREGA STAY —</span>
-              </p>
-            </div>
-
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="hover:opacity-70 transition"
-                  rel="nofollow"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-
-            <div className="flex items-center gap-2">
-              <a
-                href="#booking"
-                className="hidden sm:inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium text-white shadow-sm ring-1 ring-black/5 hover:shadow transition"
-                style={{ background: ENJI }}
-              >
-                空室確認・予約
-              </a>
-              <button
-                className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-300"
-                onClick={() => setOpen((v) => !v)}
-                aria-label="Open menu"
-              >
-                ☰
-              </button>
-            </div>
-          </div>
-
-          {open && (
-            <div className="md:hidden border-t border-neutral-200 bg-white/95 backdrop-blur px-4 py-3">
-              <div className="mx-auto max-w-6xl grid gap-2 text-sm">
-                {[...navItems, { href: "#booking", label: "空室確認・予約" }].map(
-                  (item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="rounded-lg px-2 py-2 hover:bg-neutral-100"
-                    >
-                      {item.label}
-                    </a>
-                  )
-                )}
-              </div>
-            </div>
-          )}
-        </header>
-
-        {/* ===================== Hero + Intro ===================== */}
-        <section className="relative w-full overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 -z-10">
-            <div
-              className="
-                absolute inset-0
-                bg-[url('/images/bg_mobile.jpg')]
-                md:bg-[url('/images/bg_mobile.jpg')]
-                bg-cover bg-center
-              "
-            />
-            <div className="absolute inset-0 bg-black/35 md:bg-black/20" />
-            <div
-              className="
-                absolute inset-0
-                bg-gradient-to-b
-                from-black/10 via-transparent to-black/20
-              "
-            />
-          </div>
-
-          {/* Hero */}
-          <section className="relative w-full">
-            <div className="relative z-10 mx-auto max-w-6xl px-4 pt-12 pb-8 md:py-0">
-              <div className="grid items-center gap-8 md:grid-cols-[1fr_1.25fr] md:gap-8 md:min-h-[60vh]">
-                <div className="relative z-10 mt-0 md:mt-0">
-                  <div className="hidden md:block">
-                    <h1 className="text-left text-7xl text-white font-serif font-thin leading-tight tracking-wide">
-                      <span>KAKUREGA</span>
-                      <span className="block mt-1 opacity-90">STAY</span>
-                    </h1>
-
-                    <div className="mt-6 flex items-center gap-3 font-serif">
-                      <div className="h-px w-[260px] bg-neutral-300" />
-                      <p className="text-xl text-white tracking-[0.18em]">
-                        HASHITATE
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="md:hidden">
-                    <h1 className="text-left text-4xl text-white font-serif leading-tight tracking-wide">
-                      <span>KAKUREGA</span>
-                      <span className="block opacity-90">STAY</span>
-                    </h1>
-
-                    <div className="mt-0 flex items-center gap-3 font-serif">
-                      <div className="h-px w-20 bg-white/70" />
-                      <p className="text-sm text-white tracking-[0.18em]">
-                        HASHITATE
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="hidden md:flex relative z-10 items-center justify-center">
-                  <div
-                    className="
-                      relative
-                      w-full
-                      max-w-[450px]
-                      aspect-square
-                    "
+        {/* Mobile drawer */}
+        {open && (
+          <div className="md:hidden border-t border-neutral-200 bg-white/95 backdrop-blur px-4 py-3">
+            <div className="mx-auto max-w-6xl grid gap-2 text-sm">
+              {[...navItems, { href: "#booking", label: "空室確認・予約" }].map(
+                (item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-lg px-2 py-2 hover:bg-neutral-100"
                   >
-                    <img
-                      src="/images/rogo6.png"
-                      alt="橋立の風景"
-                      className="w-full h-full object-cover object-center rounded-2xl"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-black/0" />
-                  </div>
-                </div>
-              </div>
+                    {item.label}
+                  </a>
+                )
+              )}
             </div>
+          </div>
+        )}
+      </header>
 
-            <div
-              className="absolute -right-24 -top-24 h-64 w-64 rounded-full blur-3xl opacity-20"
-              style={{ background: `radial-gradient(circle, ${ENJI}, transparent 60%)` }}
-            />
-          </section>
+{/* ===================== Hero + Intro（共通背景で包む） ===================== */}
+<section className="relative w-full overflow-hidden">
+  {/* ===== 共通背景 ===== */}
+  <div className="pointer-events-none absolute inset-0 -z-10">
+    {/* 背景画像 */}
+    <div
+      className="
+        absolute inset-0
+        bg-[url('/images/bg_mobile.jpg')]
+        md:bg-[url('/images/bg_mobile.jpg')]
+        bg-cover bg-center
+      "
+    />
 
-          {/* Intro */}
-          <section id="intro" className="relative w-full scroll-mt-24 pb-10 md:pb-30">
-            <div className="relative z-10 mx-auto max-w-6xl px-4">
-              <div className="hidden md:block font-serif text-white">
-                <p className="text-lg lg:text-xl opacity-80 align-middle">
-                  加賀の海辺、橋立
-                </p>
+    {/* 暗幕 */}
+    <div className="absolute inset-0 bg-black/35 md:bg-black/20" />
 
-                <h2 className="text-4xl lg:text-5xl font-thin tracking-wide leading-tight text-white">
-                  MAGONDO
-                </h2>
+    {/* うっすらグラデ */}
+    <div
+      className="
+        absolute inset-0
+        bg-gradient-to-b
+        from-black/10 via-transparent to-black/20
+      "
+    />
+  </div>
 
-                <div className="mt-6 h-px w-full bg-white/50" />
+  {/* ===================== Hero ===================== */}
+<section className="relative w-full">
 
-                <div className="mt-8 max-w-3xl space-y-3">
-                  <p className="text-base leading-8">
-                    静けさを大切にした、「隠れ家」ステイ。海辺の散歩、蔵の空気、和とモダンが混ざる時間。
-                  </p>
-                </div>
-              </div>
+  <div className="relative z-10 mx-auto max-w-6xl px-4 pt-12 pb-8 md:py-0">
 
-              <div className="md:hidden font-serif text-white pt-2">
-                <p className="text-sm tracking-[0.16em] opacity-80">
-                  加賀の海辺、橋立
-                </p>
+    <div className="grid items-center gap-8 md:grid-cols-[1fr_1.25fr] md:gap-8 md:min-h-[60vh]">
 
-                <h2 className="mt-1 text-3xl leading-tight tracking-wide">
-                  MAGONDO
-                </h2>
+      {/* ===================== Left Text ===================== */}
+      <div className="relative z-10 mt-0 md:mt-0">
 
-                <div className="mt-2 h-px w-20 bg-white/70" />
+        {/* ===== Desktop ===== */}
+        <div className="hidden md:block">
 
-                <div className="mt-4 max-w-[28rem] space-y-2 text-sm leading-7 text-white/95">
-                  <p>静けさを大切にした、「隠れ家」ステイ。</p>
-                  <p>海辺の散歩、蔵の空気、和とモダンが混ざる時間。</p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </section>
+          <h1 className="text-left text-7xl text-white font-serif font-thin leading-tight tracking-wide">
+            <span>KAKUREGA</span>
+            <span className="block mt-1 opacity-90">STAY</span>
+          </h1>
 
-        {/* ROOMS bar */}
-        <section className="w-full mt-0">
-          <div
-            className="flex flex-col items-center justify-center w-full h-[2px] md:h-[4px]"
-            style={{ backgroundColor: ENJI }}
+          <div className="mt-6 flex items-center gap-3 font-serif">
+            <div className="h-px w-[260px] bg-neutral-300" />
+
+            <p className="text-xl text-white tracking-[0.18em]">
+              HASHITATE
+            </p>
+          </div>
+
+        </div>
+
+
+        {/* ===== Mobile ===== */}
+        <div className="md:hidden">
+
+          <h1 className="text-left text-4xl text-white font-serif leading-tight tracking-wide">
+            <span>KAKUREGA</span>
+            <span className="block opacity-90">STAY</span>
+          </h1>
+
+          <div className="mt-0 flex items-center gap-3 font-serif">
+            <div className="h-px w-20 bg-white/70" />
+
+            <p className="text-sm text-white tracking-[0.18em]">
+              HASHITATE
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* ===================== Right Visual ===================== */}
+      <div className="hidden md:flex relative z-10 items-center justify-center">
+
+        <div
+          className="
+            relative
+            w-full
+            max-w-[450px]
+            aspect-square
+          "
+        >
+
+          <img
+            src="/images/rogo6.png"
+            alt="橋立の風景"
+            className="w-full h-full object-cover object-center rounded-2xl"
           />
-        </section>
+
+          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-black/0" />
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {/* Hero corner accent */}
+  <div
+    className="absolute -right-24 -top-24 h-64 w-64 rounded-full blur-3xl opacity-20"
+    style={{ background: `radial-gradient(circle, ${ENJI}, transparent 60%)` }}
+  />
+
+</section>
+
+  {/* ===================== Intro ===================== */}
+  <section id="intro" className="relative w-full scroll-mt-24 pb-10 md:pb-30">
+    <div className="relative z-10 mx-auto max-w-6xl px-4">
+
+      {/* ===== Desktop ===== */}
+      <div className="hidden md:block font-serif text-white">
+        <p className="text-lg lg:text-xl opacity-80 align-middle">
+          加賀の海辺、橋立
+        </p>
+
+        <h2 className="text-4xl lg:text-5xl font-thin tracking-wide leading-tight text-white">
+          MAGONDO
+        </h2>
+
+        <div className="mt-6 h-px w-full bg-white/50" />
+
+        <div className="mt-8 max-w-3xl space-y-3">
+          <p className="text-base leading-8">
+            静けさを大切にした、「隠れ家」ステイ。海辺の散歩、蔵の空気、和とモダンが混ざる時間。
+          </p>
+        </div>
+      </div>
+
+      {/* ===== Mobile ===== */}
+      <div className="md:hidden font-serif text-white pt-2">
+        <p className="text-sm tracking-[0.16em] opacity-80">
+          加賀の海辺、橋立
+        </p>
+
+        <h2 className="mt-1 text-3xl leading-tight tracking-wide">
+          MAGONDO
+        </h2>
+
+        <div className="mt-2 h-px w-20 bg-white/70" />
+
+        <div className="mt-4 max-w-[28rem] space-y-2 text-sm leading-7 text-white/95">
+          <p>静けさを大切にした、「隠れ家」ステイ。</p>
+          <p>海辺の散歩、蔵の空気、和とモダンが混ざる時間。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+{/* ===================== ROOMS bar ===================== */}
+<section className="w-full mt-0">
+  <div
+    className="flex flex-col items-center justify-center w-full h-[2px] md:h-[4px]"
+    style={{ backgroundColor: ENJI }}
+  >
+  </div>
+</section>
 
 
 
