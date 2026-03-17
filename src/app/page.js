@@ -34,7 +34,20 @@ function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.
 
   const [done, setDone] = useState(false);
   const [leaving, setLeaving] = useState(false); // フェード用
+useEffect(() => {
+  const nav = performance.getEntriesByType("navigation")[0];
 
+  // リロードの時は保存を消す
+  if (nav && nav.type === "reload") {
+    sessionStorage.removeItem("coverSeen");
+  }
+
+  // 保存があるなら表紙を出さない
+  const seen = sessionStorage.getItem("coverSeen");
+  if (seen === "1") {
+    setDone(true);
+  }
+}, []);
 
   useEffect(() => {
     const seen = sessionStorage.getItem("coverSeen");
@@ -70,12 +83,13 @@ function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.
     };
   }, [done]);
 
- const close = () => {
+const close = () => {
   if (leaving || done) return;
   setLeaving(true);
 
   sessionStorage.setItem("coverSeen", "1");
 
+  // フェードアウトしてから消す
   window.setTimeout(() => setDone(true), 220);
 };
 
