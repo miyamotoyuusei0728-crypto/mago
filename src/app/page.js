@@ -818,7 +818,7 @@ return (
               transition
             "
           >
-            - View more -
+            - MAGOICHI View more -
           </p>
         </div>
       </a>
@@ -862,7 +862,7 @@ return (
               transition
             "
           >
-            - View more -
+            - MAGONI View more -
           </p>
         </div>
       </a>
@@ -906,7 +906,7 @@ return (
               transition
             "
           >
-            - View more -
+            - MAGOSAN View more -
           </p>
         </div>
       </a>
