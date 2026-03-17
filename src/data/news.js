@@ -6,7 +6,7 @@ export const newsItems = [
     title: "手紙を書く、夜のカフェ時間",
     text: "静かな夜に、チーズケーキと珈琲、そして手紙を書く時間をご用意しました。",
     slug: "night-cafe-letter",
-    image: "/images/news/night-cafe1.jpg",
+    image: "/images/news/night-cafe11.jpg",
     body: [
       "MAGONDOでは、静かな夜にゆっくりと過ごせる夜カフェの時間をご用意しています。",
       "チーズケーキと珈琲を片手に、手紙を書くひとときや、自分だけの静かな時間をお楽しみください。",
