@@ -719,246 +719,200 @@ return (
       
       
       
-<section id="experience" className="relative md:mt-0 py-0 md:py-20 overflow-hidden">
-
+<section id="experience" className="relative md:mt-0 py-10 md:py-20 overflow-hidden">
   {/* ===== 背景画像 ===== */}
   <div className="absolute inset-0 -z-10">
     <img
-      src="/images/experience-bg20.jpg"   // ← 好きな画像に変更
+      src="/images/experience-bg20.jpg"
       alt=""
       className="w-full h-full object-cover"
     />
   </div>
 
-  {/* ===== 暗めオーバーレイ（文字を見やすくする） ===== */}
-  <div className="absolute inset-0 -z-0 bg-black/20" />
+  {/* ===== 暗めオーバーレイ ===== */}
+  <div className="absolute inset-0 -z-0 bg-black/30 md:bg-black/20" />
 
-  <div className="relative z-10 mx-auto max-w-6xl px-4 py-0 md:mb-5"> </div>
-        
-       <div className="relative z-10 mx-auto max-w-6xl px-4 py-0 md:mb-5">
+  <div className="relative z-10 mx-auto max-w-6xl px-4 md:mb-5">
+    {/* ===== PC見出し ===== */}
+    <div className="hidden md:flex w-full py-6 items-center gap-4">
+      <span className="text-white text-3xl tracking-[0em] font-serif">
+        Looks Experience
+      </span>
 
-  <div className="w-full py-6 flex items-center gap-4">
+      <span className="flex-1 h-px bg-white/70"></span>
 
-    <span className="text-white text-3xl tracking-[0.em] font-serif">
-      Looks Experience
-    </span>
-
-    {/* 横ライン */}
-    <span className="flex-1 h-px bg-white/70"></span>
-
-    <span className="text-white text-xl tracking-[0.1em] font-serif">
-      MAGONDO
-    </span>
-
-  </div>
-
-
-
-         
-
-<div className="w-full py-4 block md:hidden">
-  <div>
-    <span className="text-black text-2xl tracking-[0.em] font-serif">
-     Looks Experience
-    </span>
-
-    {/* 横棒 */}
-    <span className="mx-3 text-black opacity-70">
-      —
-    </span>
-
-    <span className="text-black text-xs tracking-[0.em] font-serif">
-       MAGONDO
-    </span>
-  </div>
-</div>
-<div className="text-left mb-8 md:mb-12">
-
-  <p className="
-    font-serif
-    text-sm md:text-base
-    text-white
-    leading-relaxed
-    
-  ">
-    設えや空気感の異なる三つの宿。過ごし方に合わせて、滞在のかたちをお選びください。
-  </p>
-
-  <p className="
-    mt-4
-    text-[11px] md:text-[13px]
-    tracking-[0.35em]
-    uppercase
-    text-neutral-500
-    font-serif
-  ">
-    Choose Your Stay
-  </p>
-
-</div>
-
-          <div className="grid grid-cols-3 md:grid-cols-3 md:gap-8 gap-2 justify-items-center md:mt-0 mt-0">   
-  {/* 宿 */}
-  <a href="/dining" className="group block">
-  <div className="flex items-center gap-3">
-    
-
-      <div className="
-  relative
-  w-full max-w-[150px] md:max-w-none md:w-[300px]
-  h-[150px] md:h-[300px]
-  overflow-hidden
-  rounded-lg
-
-    ring-1 ring-white
-group-hover:ring-neutral-500
-transition duration-300 /* ← 白枠 */
-
-">
-
-        <img
-          src="/images/mago1.jpg"
-          alt="客室について"
-          className="
-            h-full w-full object-cover
-            transition-transform duration-700 ease-out
-            group-hover:scale-[1.05]
-          "
-        />
-        <div
-          className="
-            absolute inset-0
-            bg-neutral-900/0
-            transition duration-500
-            group-hover:bg-neutral-900/28
-          "
-        />
-      </div>
+      <span className="text-white text-xl tracking-[0.1em] font-serif">
+        MAGONDO
+      </span>
     </div>
-<div className="text-center">
-    <p className="
-     text-sm
-    px-4 py-1
-    inline-block
-    font-serif mt-3  text-center
-     ring-1 text-white ring-white
-group-hover:text-neutral-500/80 group-hover:ring-neutral-500/50
-transition  /* ← 白枠 */
-  ">
-      - MAGOICHI View more -
-    </p>
-    </div>
-  </a>
 
-  {/* カフェ */}
-  <a href="/rooms" className="group block">
-  <div className="flex items-center gap-3">
-    
+    {/* ===== SP見出し ===== */}
+    <div className="block md:hidden mb-8 text-center">
+      <p className="text-white/80 text-[10px] tracking-[0.35em] uppercase font-serif">
+        Choose Your Stay
+      </p>
 
-      <div className="
-  relative
-  w-full max-w-[150px] md:max-w-none md:w-[300px]
-  h-[150px] md:h-[300px]
-  overflow-hidden
-  rounded-lg
+      <h2 className="mt-2 text-white text-[28px] leading-tight font-serif tracking-[0.04em]">
+        Looks Experience
+      </h2>
 
-  ring-1 ring-white
-group-hover:ring-neutral-500
-transition duration-300 /* ← 白枠 */
-
-">
-
-        <img
-          src="/images/mago2.jpg"
-          alt="カフェについて"
-          className="
-            h-full w-full object-cover
-            transition-transform duration-700 ease-out
-            group-hover:scale-[1.05]
-          "
-        />
-        <div
-          className="
-            absolute inset-0
-            bg-neutral-900/0
-            transition duration-500
-            group-hover:bg-neutral-900/28
-          "
-        />
+      <div className="mt-3 flex items-center justify-center gap-3">
+        <span className="w-8 h-px bg-white/50"></span>
+        <span className="text-white text-xs tracking-[0.2em] font-serif">
+          MAGONDO
+        </span>
+        <span className="w-8 h-px bg-white/50"></span>
       </div>
     </div>
 
-    <div className="text-center">
-    <p className="
-     text-sm
-    px-4 py-1
-    inline-block
-    font-serif mt-3 text-center
-    ring-1 text-white ring-white
-group-hover:text-neutral-500/80 group-hover:ring-neutral-500/50
-transition  /* ← 白枠 */
-  ">
-      - MAGONI View more -
-    </p>
+    {/* ===== 説明 ===== */}
+    <div className="text-left mb-8 md:mb-12 max-w-2xl">
+      <p className="font-serif text-sm md:text-base text-white leading-relaxed">
+        設えや空気感の異なる三つの宿。過ごし方に合わせて、滞在のかたちをお選びください。
+      </p>
+
+      <p className="hidden md:block mt-4 text-[11px] md:text-[13px] tracking-[0.35em] uppercase text-neutral-300 font-serif">
+        Choose Your Stay
+      </p>
     </div>
-  </a>
 
-  {/* 周辺 */}
-  <a href="/sightseeing" className="group block">
-  <div className="flex items-center gap-3">
-   
-
-      <div className="
-  relative
-  w-full max-w-[150px] md:max-w-none md:w-[300px]
-  h-[150px] md:h-[300px]
-  overflow-hidden
-  rounded-lg
-
-    ring-1 ring-white
-group-hover:ring-neutral-500
-transition duration-300 /* ← 白枠 */
-
-">
-
-        <img
-          src="/images/mago3.jpg"
-          alt="周辺について"
-          className="
-            h-full w-full object-cover
-            transition-transform duration-700 ease-out
-            group-hover:scale-[1.05]
-          "
-        />
+    {/* ===== カード一覧 ===== */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 justify-items-center">
+      {/* MAGOICHI */}
+      <a href="/dining" className="group block w-full">
         <div
           className="
-            absolute inset-0
-            bg-neutral-900/0
-            transition duration-500
-            group-hover:bg-neutral-900/28
+            relative w-full
+            h-[220px] md:w-[300px] md:h-[300px]
+            overflow-hidden rounded-xl
+            ring-1 ring-white/80 group-hover:ring-neutral-400
+            transition duration-300
+            shadow-[0_10px_30px_rgba(0,0,0,0.18)]
           "
-        />
-      </div>
-    </div>
+        >
+          <img
+            src="/images/mago1.jpg"
+            alt="MAGOICHI"
+            className="
+              h-full w-full object-cover
+              transition-transform duration-700 ease-out
+              group-hover:scale-[1.05]
+            "
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition duration-500" />
 
-       <div className="text-center">
-    <p className="
-     text-sm
-    px-4 py-1
-    inline-block
-    font-serif mt-3 text-center
-    ring-1 text-white ring-white
-group-hover:text-neutral-500/80 group-hover:ring-neutral-500/50
-transition  /* ← 白枠 */
-  ">
-      - MAGOSAN View more -
-    </p>
-    </div>
-    
-        </a>
+          {/* SP用タイトル重ね */}
+          <div className="absolute inset-x-0 bottom-0 p-4 md:hidden">
+            <p className="text-white text-lg font-serif tracking-[0.08em]">
+              MAGOICHI
+            </p>
+          </div>
         </div>
+
+        <div className="text-center md:text-center mt-3">
+          <p
+            className="
+              text-sm px-4 py-1.5 inline-block font-serif
+              text-white ring-1 ring-white/80
+              group-hover:text-neutral-300 group-hover:ring-neutral-400
+              transition
+            "
+          >
+            - MAGOICHI View more -
+          </p>
         </div>
-      </section>
+      </a>
+
+      {/* MAGONI */}
+      <a href="/rooms" className="group block w-full">
+        <div
+          className="
+            relative w-full
+            h-[220px] md:w-[300px] md:h-[300px]
+            overflow-hidden rounded-xl
+            ring-1 ring-white/80 group-hover:ring-neutral-400
+            transition duration-300
+            shadow-[0_10px_30px_rgba(0,0,0,0.18)]
+          "
+        >
+          <img
+            src="/images/mago2.jpg"
+            alt="MAGONI"
+            className="
+              h-full w-full object-cover
+              transition-transform duration-700 ease-out
+              group-hover:scale-[1.05]
+            "
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition duration-500" />
+
+          <div className="absolute inset-x-0 bottom-0 p-4 md:hidden">
+            <p className="text-white text-lg font-serif tracking-[0.08em]">
+              MAGONI
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center mt-3">
+          <p
+            className="
+              text-sm px-4 py-1.5 inline-block font-serif
+              text-white ring-1 ring-white/80
+              group-hover:text-neutral-300 group-hover:ring-neutral-400
+              transition
+            "
+          >
+            - MAGONI View more -
+          </p>
+        </div>
+      </a>
+
+      {/* MAGOSAN */}
+      <a href="/sightseeing" className="group block w-full">
+        <div
+          className="
+            relative w-full
+            h-[220px] md:w-[300px] md:h-[300px]
+            overflow-hidden rounded-xl
+            ring-1 ring-white/80 group-hover:ring-neutral-400
+            transition duration-300
+            shadow-[0_10px_30px_rgba(0,0,0,0.18)]
+          "
+        >
+          <img
+            src="/images/mago3.jpg"
+            alt="MAGOSAN"
+            className="
+              h-full w-full object-cover
+              transition-transform duration-700 ease-out
+              group-hover:scale-[1.05]
+            "
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition duration-500" />
+
+          <div className="absolute inset-x-0 bottom-0 p-4 md:hidden">
+            <p className="text-white text-lg font-serif tracking-[0.08em]">
+              MAGOSAN
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center mt-3">
+          <p
+            className="
+              text-sm px-4 py-1.5 inline-block font-serif
+              text-white ring-1 ring-white/80
+              group-hover:text-neutral-300 group-hover:ring-neutral-400
+              transition
+            "
+          >
+            - MAGOSAN View more -
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 <div
     className="flex flex-col items-center justify-center w-full h-[50px] md:h-[3px]"
     style={{ backgroundColor: ENJI }}
