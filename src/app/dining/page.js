@@ -5,10 +5,14 @@ import Link from "next/link";
 const roomSlides = [
   { src: "/images/room11.jpg", title: "Living", },
   { src: "/images/room122.jpg", title: "Betroom", },
-  { src: "/images/room133.jpg", title: "kitchen", },
+  { src: "/images/room133.jpg", title: "Kitchen", },
   { src: "/images/room14.jpg", title: "bathroom",  },
-  { src: "/images/room155.jpg", title: "寝室",  },
-  { src: "/images/room166.jpg", title: "寝室",  },
+  { src: "/images/room1555.jpg", title: "寝室",  },
+  { src: "/images/room1666.jpg", title: "寝室",  },
+  { src: "/images/room17.jpg", title: "bathroom",  },
+  { src: "/images/room18.jpg", title: "bathroom",  },
+  { src: "/images/room19.jpg", title: "bathroom",  },
+  { src: "/images/room110.jpg", title: "bathroom",  },
 ];
 
 

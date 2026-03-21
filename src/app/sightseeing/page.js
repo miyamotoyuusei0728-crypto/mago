@@ -3,15 +3,19 @@ import Mago3 from "@/app/components/Mago3";
 import Link from "next/link";
 
 const roomSlides = [
-  { src: "/images/room31.jpg", title: "外観", },
-  { src: "/images/room32.jpg", title: "リビング", },
-  { src: "/images/room33.jpg", title: "キッチン", },
-  { src: "/images/room34.jpg", title: "寝室",  },
-  { src: "/images/roomk35.jpg", title: "寝室",  },
-  { src: "/images/roomk36.jpg", title: "寝室",  },
-  { src: "/images/roomk37.jpg", title: "寝室",  },
-  { src: "/images/roomk38.jpg", title: "寝室",  },
-  { src: "/images/roomk39.jpg", title: "寝室",  },
+  { src: "/images/room31.jpg", title: "Entrance", },
+  { src: "/images/room32.jpg", title: "Living", },
+  { src: "/images/room33.jpg", title: "Bet Room1", },
+  { src: "/images/room34.jpg", title: "Bet Room2",  },
+  { src: "/images/room335.jpg", title: "Powder Room",  },
+  { src: "/images/room336.jpg", title: "Powder Room",  },
+  { src: "/images/room337.jpg", title: "Shower Room",  },
+  { src: "/images/room338.jpg", title: "Kitchen",  },
+  { src: "/images/room334.jpg", title: "",  },
+  { src: "/images/room339.jpg", title: "",  },
+  { src: "/images/room3331.jpg", title: "",  },
+  { src: "/images/room3332.jpg", title: "",  },
+  { src: "/images/room3333.jpg", title: "",  },
 ];
 
 

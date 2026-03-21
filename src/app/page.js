@@ -914,7 +914,7 @@ return (
   </div>
 </section>
 <div
-    className="flex flex-col items-center justify-center w-full h-[50px] md:h-[3px]"
+    className="flex flex-col items-center justify-center w-full h-[3px] md:h-[3px]"
     style={{ backgroundColor: ENJI }}
   >
   </div>
@@ -928,22 +928,30 @@ return (
 
 
 
-     {/* Kura（蔵の宿） */}
-<section id="kura" className="relative w-full scroll-mt-24 py-20 md:mt-0 mt-15">
-  {/* 背景グラデーション（フル幅） */}
-  <div
-    className="
-    pointer-events-none absolute inset-0 
- 
-  bg-neutral-100/100" 
-  />
+    {/* Kura（蔵の宿） */}
+<section id="kura" className="relative w-full scroll-mt-24 py-14 md:py-20">
+  {/* 背景 */}
+  <div className="pointer-events-none absolute inset-0 bg-neutral-100" />
 
-  {/* 中身だけ幅制限（ここが今までのサイズを保つ） */}
-  <div className="relative z-10 mx-auto max-w-6xl px-4 ">
-    <div className="grid md:grid-cols-2 items-start gap-12">
+  <div className="relative z-10 mx-auto max-w-6xl px-4">
+
+    {/* ===== モバイル用 見出し（画像の上） ===== */}
+    <div className="block md:hidden text-center mb-6">
+      <p className="text-[11px] tracking-[0.28em] uppercase text-neutral-500 font-serif">
+        Kura Stay
+      </p>
+
+      <h2 className="mt-3 text-[20px] leading-[1.9] font-bold tracking-[0.12em] text-neutral-900 font-serif">
+        加賀の恵みを<br />
+        自分たちの手で
+      </h2>
+    </div>
+
+    <div className="grid md:grid-cols-2 items-start gap-8 md:gap-12">
+      
       {/* 画像 */}
       <div className="md:pl-6">
-        <div className="w-screen -mx-4 md:mr-auto md:w-full max-w-[1100px] aspect-[19/6] md:aspect-[5/3] overflow-hidden rounded-none shadow-lg">
+        <div className="w-screen -mx-4 md:mx-0 md:w-full max-w-[1100px] aspect-[4/5] sm:aspect-[16/10] md:aspect-[5/3] overflow-hidden shadow-lg">
           <img
             src="/images/room21.jpg"
             alt="蔵の宿 MAGONDO"
@@ -952,153 +960,160 @@ return (
         </div>
       </div>
 
-    {/* テキスト */}
-    <div className="font-serif text-neutral-800">
-      {/* 見出し */}
-      <p className="md:mt-24 -mt-58 text-center font-serif text-center">
-  <span
-    className="
-   
-      inline-block
-      text-lg md:text-2xl
-      font-bold
-      tracking-[0.12em]
-    "
-        >
-        -加賀の恵みを、自分たちの手で-
-        </span>
-      </p>
+      {/* ===== テキスト ===== */}
+      <div className="font-serif text-neutral-800 flex flex-col justify-center">
 
-      {/* 本文ブロック */}
-      <div className="md:mt-10 mt-43 md:mt-6 md:ml-6">
-        {/* ライン */}
-        <div className="md:mt-2  center h-px w-full md:w-[500px] bg-neutral-300" />
-        <div className="md:mt-6 mt-3 space-y-0 text-sm text-neutral-600 leading-relaxed ">
-          <p>
-            近くの市場や直売所で選んだ食材を、
-            完全プライベートなキッチンで調理する。
-          </p>
+        {/* PC用見出し（そのまま） */}
+        <p className="hidden md:block md:mt-24 text-center">
+          <span className="inline-block text-lg md:text-2xl font-bold tracking-[0.12em]">
+            -加賀の恵みを、自分たちの手で-
+          </span>
+        </p>
 
-          <p>
-            この宿では「食べに行く旅」だけでなく、
-            “料理する時間”を大切にしています。
-          </p>
-          
+        {/* 本文 */}
+        <div className="mt-0 md:mt-10 md:ml-6">
+          <div className="mx-auto md:mx-0 h-px w-16 md:w-[500px] bg-neutral-300" />
+
+          <div className="mt-5 md:mt-6 space-y-4 text-[14px] md:text-sm text-neutral-600 md-leading-[2.1] leading-[1.5] max-w-[34rem] mx-auto md:mx-0">
+            <p>
+              近くの市場や直売所で選んだ食材を、
+              完全プライベートなキッチンで調理する。
+            </p>
+
+            <p>
+              この宿では「食べに行く旅」だけでなく、
+              “料理する時間”を大切にしています。
+            </p>
+          </div>
         </div>
+
       </div>
     </div>
-   </div>
   </div>
 </section>
 
 {/* ===== NEW EXPERIENCE SECTION (text + 1 wide card) ===== */}
-<section id="experience-more" className="relative md:-mt-0 mt-0 py-9">
- <div className="pointer-events-none absolute inset-0">
-  <img
-    src="/images/experience_bg.jpg"
-    alt=""
-    className="h-full w-full object-cover"
-  />
+<section id="experience-more" className="relative mt-0 py-6 md:py-9">
+  <div className="pointer-events-none absolute inset-0">
+    <img
+      src="/images/experience_bg.jpg"
+      alt=""
+      className="h-full w-full object-cover"
+    />
+    <div className="absolute inset-0 bg-neutral-500/65" />
+  </div>
 
-  {/* 暗幕（文字を読みやすくする） */}
-  <div className="absolute inset-0 bg-neutral-500/65" />
+  <div className="relative z-10 mx-auto max-w-6xl px-4 py-10 md:mt-0">
+    {/* PC縦ライン */}
+    <div className="hidden md:block md:absolute md:left-[215px] md:-top-19 md:bottom-6 h-20 md:w-px md:bg-neutral-300/70" />
+    <div className="hidden md:block md:absolute md:left-[214px] md:-top-19 md:bottom-6 h-20 md:w-px md:bg-neutral-300/70" />
+
+    {/* ===== モバイル見出し（左寄せ） ===== */}
+<div className="md:hidden mb-8 text-left">
+  <p className="text-[11px] tracking-[0.28em] uppercase text-neutral-200 font-serif">
+    KAKUREGA Stay Guide
+  </p>
+
+  <h3 className="mt-3 text-[34px] leading-none tracking-[-0.03em] font-serif text-neutral-100">
+    HOW TO ENJOY
+  </h3>
+
+  {/* ライン（左寄せ） */}
+  <div className="mt-4 h-px w-20 bg-neutral-200/70" />
 </div>
-  <div className="relative z-10 mx-auto max-w-6xl px-4 py-10 md:mt-0 -mt-46">
-    {/* 縦ライン */}
-<div className="md:absolute md:left-215 md:-top-19 md:bottom-6 h-20 md:w-px md:bg-neutral-300/70 " />
-{/* 縦ライン */}
-<div className="md:absolute md:left-214 md:-top-19 md:bottom-6 h-20 md:w-px md:bg-neutral-300/70 " />
-    {/* 見出し */}
-    <div className="flex items-center gap-2 mb-12 relative ">
-      
-      <h2 className="text-base font-serif text-white md:ml-[10px] ml-[0px] md:-top-3 md:mt-3 mt-6">
+
+    {/* ===== PC見出し ===== */}
+    <div className="hidden md:flex items-center gap-2 mb-12 relative">
+      <h2 className="text-base font-serif text-white md:ml-[10px] md:-top-3 md:mt-3">
         KAKUREGA Stay Guide
       </h2>
-      {/* ライン */}
-        <div className="hidden md:block md:mt-2  center h-px w-full md:w-[335px] bg-neutral-50" />
-      <h3 className="md:tracking-[-0.0em] tracking-[-0.04em] text-4xl md:text-7xl font-serif text-neutral-200  absolute md:right-3 -top-3">
+
+      <div className="hidden md:block md:mt-2 h-px w-full md:w-[335px] bg-neutral-50" />
+
+      <h3 className="md:tracking-[-0.0em] text-4xl md:text-7xl font-serif text-neutral-200 absolute md:right-3 -top-3">
         HOW TO ENJOY
       </h3>
-       <h4 className="text-5xl md:text-7xl font-serif text-neutral-600  absolute right-3 -top-3">
-      
-      </h4>
+
+      <h4 className="text-5xl md:text-7xl font-serif text-neutral-600 absolute right-3 -top-3"></h4>
     </div>
-    
-    {/* 2カラム */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch md:mt-0 -mt-20">
-      {/* 左：テキスト（画像なし） */}
+
+    {/* ===== モバイル専用レイアウト ===== */}
+    <div className="md:hidden">
+      <a href="/shops" className="group block">
+        <div className="relative w-full h-[240px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+          <img
+            src="/images/sightseeing_v1.jpg"
+            alt="直売所・買い出し"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          />
+          <div className="absolute inset-0 bg-black/10 transition duration-500 group-hover:bg-black/20" />
+
+          <span className="absolute bottom-3 right-3 text-white text-[11px] tracking-[0.18em] bg-black/65 px-4 py-2 rounded-full font-serif">
+            Tap to explore →
+          </span>
+        </div>
+      </a>
+
+      <div className="mt-7 text-left">
+        <p className="font-serif text-[11px] tracking-[0.22em] text-neutral-200">
+          - STAY FLOW -
+        </p>
+
+        <h4 className="mt-3 font-serif text-[25px] leading-tight text-neutral-50 tracking-[0.04em]">
+          暮らす旅のはじまり
+        </h4>
+
+        <div className="mt-5 space-y-3 text-[14px] leading-[2] text-white/95">
+          <p>旅のはじまりは、町の直売所や市場から。</p>
+          <p>出会った旬を選び、宿のキッチンで仕上げる時間まで含めて、MAGOの「暮らす旅」です。</p>
+        </div>
+      </div>
+    </div>
+
+    {/* ===== PC用レイアウト ===== */}
+    <div className="hidden md:grid md:grid-cols-2 gap-10 items-stretch md:mt-0">
+      {/* 左：テキスト */}
       <div className="relative">
-        
-        <div className="md:mt-0 mt-64 h-full md:p-8 md:mt-0 mt-8 text-left ">
+        <div className="h-full md:p-8 text-left">
           <p className="hidden md:block font-serif text-sm tracking-[0.18em] text-neutral-200">
             -STAY FLOW-
           </p>
 
           <h4 className="mt-4 font-serif text-2xl text-neutral-50 tracking-wide">
-           暮らす旅のはじまり
+            暮らす旅のはじまり
           </h4>
 
           <div className="mt-5 space-y-3 text-base leading-relaxed text-white">
-            <p>
-              旅のはじまりは、町の直売所や市場から。
-            </p>
-            <p>
-            出会った旬を選び、宿のキッチンで仕上げる時間まで含めて、
-            </p>
+            <p>旅のはじまりは、町の直売所や市場から。</p>
+            <p>出会った旬を選び、宿のキッチンで仕上げる時間まで含めて、</p>
             <p>MAGOの「暮らす旅」です。</p>
           </div>
-
-        
         </div>
       </div>
 
-      {/* 右：横長画像カード（タップで別ページ） */}
+      {/* 右：画像カード */}
       <a href="/shops" className="group block">
         <div className="flex items-start gap-4">
-
-
-          <div
-            className="md:mt-0 -mt-115
-              relative w-full md:h-[300px] h-[200px] overflow-hidden
-              shadow-[0_16px_40px_rgba(0,0,0,0.28)]
-            "
-          >
-            {/* 横長比率 */}
-            <div className="relative md:w-full max-w-[200px] md:max-w-none md:w-[385px] h-[200px] md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+          <div className="relative w-full md:h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+            <div className="relative md:w-full md:w-[385px] h-[300px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
               <img
                 src="/images/sightseeing_v1.jpg"
                 alt="直売所・買い出し"
-                className="
-                  h-full w-full object-cover
-                  transition-transform duration-700 ease-out
-                  group-hover:scale-[1.04]
-                "
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
               />
             </div>
 
             <div className="absolute inset-0 bg-neutral-900/0 transition duration-500 group-hover:bg-neutral-900/28" />
 
-            {/* 右下ラベル */}
-            <span
-              className="
-                absolute bottom-3 right-3
-                text-white text-xs tracking-wider
-                bg-black/55 px-4 py-2 rounded-full
-              "
-            >
+            <span className="absolute bottom-3 right-3 text-white text-xs tracking-wider bg-black/65 px-4 py-2 rounded-full">
               Tap to explore →
             </span>
           </div>
         </div>
-      <p className="-mt-100 md:hidden block font-serif text-sm tracking-[0.18em] text-right py-6 px-6.5 text-neutral-500">
-            STAY FLOW
-          </p>
       </a>
     </div>
   </div>
 </section>
-
-
 
 
 <div
@@ -1190,7 +1205,7 @@ return (
 
 
 <div
-    className="flex flex-col items-center  bg-neutral-400/100 justify-center w-full h-[50px] md:h-[3px]"
+    className="flex flex-col items-center  bg-neutral-400/100 justify-center w-full h-[0px] md:h-[3px]"
     
   >
   </div>
@@ -1222,138 +1237,8 @@ return (
       </section>
 
 
-
-
-
-{/* Access */}
-<section id="access" className="w-full py-5 scroll-mt-24 bg-neutral-400/60">
-  <div className="mx-auto max-w-5xl px-4">
-    <div className="flex items-end justify-between gap-4">
-      <div>
-        <p className="text-xs tracking-[0.25em] text-neutral-300">ACCESS</p>
-        <h2 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-neutral-200">
-          アクセス
-        </h2>
-      </div>
-
-      {/* 任意：小さなアクセント（ゴールドラインがあるなら馴染む） */}
-      <div className="hidden sm:block h-px w-24 bg-neutral-200" />
-    </div>
-
-    <div className="mt-10 grid md:grid-cols-2 gap-6">
-  {/* Info */}
-  <div
-    className="
-      rounded-none
-      border border-neutral-200/80
-      bg-white
-      p-7
-      shadow-[0_8px_24px_rgba(0,0,0,0.04)]
-      md:aspect-[9/3]
-      min-w-0
-    "
-  >
-    <h3 className="text-sm font-medium tracking-widest text-neutral-700">
-      住所
-    </h3>
-
-    <p className="mt-3 text-sm text-neutral-700 leading-relaxed break-words">
-      石川県加賀市橋立町ム-2
-    </p>
-
-    <dl className="mt-6 space-y-3 text-sm text-neutral-600">
-      <div className="flex gap-3 flex-wrap md:flex-nowrap">
-        <dt className="text-neutral-500 md:w-20 md:shrink-0">電車</dt>
-        <dd className="min-w-0 break-words">JR加賀温泉駅から車で15分</dd>
-      </div>
-
-      <div className="flex gap-3 flex-wrap md:flex-nowrap">
-        <dt className="text-neutral-500 md:w-20 md:shrink-0">お車</dt>
-        <dd className="min-w-0 break-words">片山津ICから10分</dd>
-      </div>
-
-      <div className="flex gap-3 flex-wrap md:flex-nowrap">
-        <dt className="text-neutral-500 md:w-20 md:shrink-0">駐車場</dt>
-        <dd className="min-w-0 break-words">あり（無料）</dd>
-      </div>
-    </dl>
-
-    <div className="mt-7 flex flex-wrap gap-2 min-w-0">
-      <a
-  href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z/data=!3m1!4b1!4m9!3m8!1s0x5ff8f9c3dc5cc69b:0x49446a19448de165!5m2!4m1!1i2!8m2!3d36.3511956!4d136.3101328!16s%2Fg%2F11l20c0ljf?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Googleマップで開く ↗︎
-</a>
-
-
-      <button
-        type="button"
-        onClick={() =>
-         navigator.clipboard.writeText("〒922-0554 石川県加賀市橋立町ム-2")
-        }
-        className="
-          inline-flex items-center gap-2
-          border border-neutral-200
-          bg-white
-          px-4 py-2
-          text-xs font-medium tracking-widest text-neutral-700
-          transition
-          hover:bg-neutral-100
-          max-w-full
-        "
-      >
-        住所をコピー
-      </button>
-    </div>
-  </div>
-
-  {/* Map */}
-  <div
-    className="
-      rounded-none
-      border border-neutral-200/80
-      overflow-hidden
-      bg-white
-      shadow-[0_8px_24px_rgba(0,0,0,0.04)]
-      min-w-0
-    "
-  >
-    {/* ここをiframeに置き換え */}
-    <div className="relative">
-      <iframe
-      
-  src="https://www.google.com/maps/embed?pb=XXXXXXXXXXXX"
-  className="w-full h-full border-0"
-  allowFullScreen=""
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-/>
-
-
-      <div className="absolute bottom-0 left-4 md:left-6 bg-white/80 backdrop-blur px-3 py-1">
-        <p className="text-[11px] text-neutral-600">
-          目印：〇〇（例：橋立港 / 〇〇神社 付近）
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-    {/* 下の区切り（サイト全体のゴールドラインと合わせる用） */}
-    <div className="mt-7 mb-8 h-px w-full bg-neutral-200" />
-  </div>
-</section>
-
-
-
-
-
-
-
 <div
-    className="flex flex-col items-center justify-center w-full h-[50px] md:h-[3px]"
+    className="flex flex-col items-center justify-center w-full h-[5px] md:h-[3px]"
     style={{ backgroundColor: ENJI }}
   >
   </div>
@@ -1491,6 +1376,96 @@ return (
   </div>
 </section>
 
+
+{/* Access */}
+<section id="access" className="w-full py-5 scroll-mt-24 bg-neutral-400/60">
+  <div className="mx-auto max-w-5xl px-4">
+    <div className="flex items-end justify-between gap-4">
+      <div>
+        <p className="text-xs tracking-[0.25em] text-neutral-100">ACCESS</p>
+       
+      </div>
+
+      {/* 任意：小さなアクセント（ゴールドラインがあるなら馴染む） */}
+      <div className="hidden sm:block h-px w-24 bg-neutral-200" />
+    </div>
+
+    <div className="mt-10 grid md:grid-cols-2 gap-6">
+  {/* Info */}
+  <div
+    className="
+      rounded-none
+      border border-neutral-200/80
+      bg-white
+      p-7
+      shadow-[0_8px_24px_rgba(0,0,0,0.04)]
+      md:aspect-[9/3]
+      min-w-0
+    "
+  >
+    <h3 className="text-sm font-medium tracking-widest text-neutral-700">
+      住所
+    </h3>
+
+    <p className="mt-3 text-sm text-neutral-700 leading-relaxed break-words">
+      MAGONDO 石川県加賀市橋立町ム-2
+    </p>
+
+    <dl className="mt-6 space-y-3 text-sm text-neutral-600">
+      <div className="flex gap-3 flex-wrap md:flex-nowrap">
+        <dt className="text-neutral-500 md:w-20 md:shrink-0">電車</dt>
+        <dd className="min-w-0 break-words">JR加賀温泉駅から車で15分</dd>
+      </div>
+
+      <div className="flex gap-3 flex-wrap md:flex-nowrap">
+        <dt className="text-neutral-500 md:w-20 md:shrink-0">お車</dt>
+        <dd className="min-w-0 break-words">片山津ICから10分</dd>
+      </div>
+
+      <div className="flex gap-3 flex-wrap md:flex-nowrap">
+        <dt className="text-neutral-500 md:w-20 md:shrink-0">駐車場</dt>
+        <dd className="min-w-0 break-words">あり（無料）</dd>
+      </div>
+    </dl>
+
+    <div className="mt-7 flex flex-wrap gap-2 min-w-0">
+      <a
+  href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z/data=!3m1!4b1!4m9!3m8!1s0x5ff8f9c3dc5cc69b:0x49446a19448de165!5m2!4m1!1i2!8m2!3d36.3511956!4d136.3101328!16s%2Fg%2F11l20c0ljf?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Googleマップで開く ↗︎
+</a>
+
+
+      <button
+        type="button"
+        onClick={() =>
+         navigator.clipboard.writeText("〒922-0554 石川県加賀市橋立町ム-2")
+        }
+        className="
+          inline-flex items-center gap-2
+          border border-neutral-200
+          bg-white
+          px-4 py-2
+          text-xs font-medium tracking-widest text-neutral-700
+          transition
+          hover:bg-neutral-100
+          max-w-full
+        "
+      >
+        住所をコピー
+      </button>
+    </div>
+  </div>
+
+
+</div>
+
+    {/* 下の区切り（サイト全体のゴールドラインと合わせる用） */}
+    <div className="mt-7 mb-8 h-px w-full bg-neutral-200" />
+  </div>
+</section>
 
 
 <div

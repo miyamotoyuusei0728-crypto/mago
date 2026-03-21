@@ -3,12 +3,17 @@ import Mago2 from "@/app/components/Mago2";
 import Link from "next/link";
 
 const roomSlides = [
-  { src: "/images/room21.jpg", title: "living", },
-  { src: "/images/room22.jpg", title: "betroom", },
-  { src: "/images/room23.jpg", title: "キッチン", },
-  { src: "/images/room24.jpg", title: "寝室",  },
-  { src: "/images/room25.jpg", title: "寝室",  },
-  { src: "/images/room26.jpg", title: "寝室",  },
+  { src: "/images/room21.jpg", title: "Living", },
+  { src: "/images/room22.jpg", title: "Bet Room", },
+  { src: "/images/room23.jpg", title: "Entrance", },
+  { src: "/images/room24.jpg", title: "Powder Room",  },
+  { src: "/images/room25.jpg", title: "Shower Room",  },
+  { src: "/images/room26.jpg", title: "Kitchen",  },
+  { src: "/images/room27.jpg", title: "Appliances",  },
+  { src: "/images/room28.jpg", title: "TV",  },
+  { src: "/images/room29.jpg", title: "",  },
+  { src: "/images/room221.jpg", title: "",  },
+  { src: "/images/room222.jpg", title: "",  },
 ];
 
 
