@@ -203,7 +203,7 @@ const introSlides = [
 ];
 
 const aboutSlides = [
-  { src: "/images/room-0111.jpg", alt: "room 01", title: "KURA" },
+  { src: "/images/room-0111.jpg", alt: "room 01", title: "ICHI" },
   { src: "/images/room-0222.jpg", alt: "room 02", title: "NI" },
   { src: "/images/room-0333.jpg", alt: "room 03", title: "SAN" },
 ];
@@ -1377,94 +1377,113 @@ return (
   </div>
 </section>
 
-
 {/* Access */}
-<section id="access" className="w-full py-5 scroll-mt-24 bg-neutral-400/60">
+<section id="access" className="w-full py-16 scroll-mt-24 bg-[#2b2b2b]">
   <div className="mx-auto max-w-5xl px-4">
+
+    {/* 見出し */}
     <div className="flex items-end justify-between gap-4">
       <div>
-        <p className="text-xs tracking-[0.25em] text-neutral-100">ACCESS</p>
-       
+        <p className="text-xs tracking-[0.35em] text-neutral-300 font-serif">
+          ACCESS
+        </p>
+        <h2 className="mt-2 text-xl md:text-2xl text-white font-serif tracking-[0.15em]">
+          アクセス
+        </h2>
       </div>
 
-      {/* 任意：小さなアクセント（ゴールドラインがあるなら馴染む） */}
-      <div className="hidden sm:block h-px w-24 bg-neutral-200" />
+      <div className="hidden sm:block h-px w-24 bg-[#c6a356]" />
     </div>
 
-    <div className="mt-10 grid md:grid-cols-2 gap-6">
-  {/* Info */}
-  <div
-    className="
-      rounded-none
-      border border-neutral-200/80
-      bg-white
-      p-7
-      shadow-[0_8px_24px_rgba(0,0,0,0.04)]
-      md:aspect-[9/3]
-      min-w-0
-    "
-  >
-    <h3 className="text-sm font-medium tracking-widest text-neutral-700">
-      住所
-    </h3>
+    {/* 本体 */}
+    <div className="mt-10 grid md:grid-cols-2 gap-8">
 
-    <p className="mt-3 text-sm text-neutral-700 leading-relaxed break-words">
-      MAGONDO 石川県加賀市橋立町ム-2
-    </p>
-
-    <dl className="mt-6 space-y-3 text-sm text-neutral-600">
-      <div className="flex gap-3 flex-wrap md:flex-nowrap">
-        <dt className="text-neutral-500 md:w-20 md:shrink-0">電車</dt>
-        <dd className="min-w-0 break-words">JR加賀温泉駅から車で15分</dd>
-      </div>
-
-      <div className="flex gap-3 flex-wrap md:flex-nowrap">
-        <dt className="text-neutral-500 md:w-20 md:shrink-0">お車</dt>
-        <dd className="min-w-0 break-words">片山津ICから10分</dd>
-      </div>
-
-      <div className="flex gap-3 flex-wrap md:flex-nowrap">
-        <dt className="text-neutral-500 md:w-20 md:shrink-0">駐車場</dt>
-        <dd className="min-w-0 break-words">あり（無料）</dd>
-      </div>
-    </dl>
-
-    <div className="mt-7 flex flex-wrap gap-2 min-w-0">
-      <a
-  href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z/data=!3m1!4b1!4m9!3m8!1s0x5ff8f9c3dc5cc69b:0x49446a19448de165!5m2!4m1!1i2!8m2!3d36.3511956!4d136.3101328!16s%2Fg%2F11l20c0ljf?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Googleマップで開く ↗︎
-</a>
-
-
-      <button
-        type="button"
-        onClick={() =>
-         navigator.clipboard.writeText("〒922-0554 石川県加賀市橋立町ム-2")
-        }
+      {/* Infoカード */}
+      <div
         className="
-          inline-flex items-center gap-2
-          border border-neutral-200
+          relative
+          border border-[#d6c7a1]/40
           bg-white
-          px-4 py-2
-          text-xs font-medium tracking-widest text-neutral-700
-          transition
-          hover:bg-neutral-100
-          max-w-full
+          p-8
+          shadow-[0_12px_40px_rgba(0,0,0,0.08)]
         "
       >
-        住所をコピー
-      </button>
+        {/* ゴールドライン（上） */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-[#c6a356]" />
+
+        <h3 className="text-sm tracking-[0.25em] text-neutral-500 font-serif">
+          LOCATION
+        </h3>
+
+        <p className="mt-4 text-base text-neutral-800 leading-relaxed font-serif">
+          MAGONDO<br />
+          石川県加賀市橋立町ム-2
+        </p>
+
+        {/* 情報 */}
+        <dl className="mt-8 space-y-4 text-sm text-neutral-600">
+          <div className="flex gap-4">
+            <dt className="w-20 text-neutral-400 tracking-widest">TRAIN</dt>
+            <dd>JR加賀温泉駅から車で15分</dd>
+          </div>
+
+          <div className="flex gap-4">
+            <dt className="w-20 text-neutral-400 tracking-widest">CAR</dt>
+            <dd>片山津ICから10分</dd>
+          </div>
+
+          <div className="flex gap-4">
+            <dt className="w-20 text-neutral-400 tracking-widest">PARKING</dt>
+            <dd>あり（無料）</dd>
+          </div>
+        </dl>
+
+        {/* ボタン */}
+        <div className="mt-10 flex flex-col sm:flex-row gap-3">
+
+          <a
+            href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              text-center
+              border border-[#c6a356]
+              px-5 py-3
+              text-xs tracking-widest text-[#c6a356]
+              transition
+              hover:bg-[#c6a356] hover:text-white
+            "
+          >
+            GOOGLE MAP →
+          </a>
+
+          <button
+            onClick={() =>
+              navigator.clipboard.writeText("〒922-0554 石川県加賀市橋立町ム-2")
+            }
+            className="
+              border border-neutral-300
+              px-5 py-3
+              text-xs tracking-widest text-neutral-600
+              transition
+              hover:bg-neutral-100
+            "
+          >
+            COPY ADDRESS
+          </button>
+
+        </div>
+      </div>
+
+      {/* 右側：余白 or 将来マップ */}
+      <div className="hidden md:block border border-dashed border-neutral-500/30 flex items-center justify-center text-neutral-400 text-sm">
+        MAP COMING SOON
+      </div>
+
     </div>
-  </div>
 
-
-</div>
-
-    {/* 下の区切り（サイト全体のゴールドラインと合わせる用） */}
-    <div className="mt-7 mb-8 h-px w-full bg-neutral-200" />
+    {/* 下ライン */}
+    <div className="mt-16 h-px w-full bg-[#c6a356]/40" />
   </div>
 </section>
 
