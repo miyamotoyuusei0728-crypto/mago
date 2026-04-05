@@ -153,7 +153,7 @@ const close = () => {
 
             <div className="hidden md:flex justify-end">
            <div
-  className="text-white/85 font-serif text-lg leading-relaxed 
+  className="hidden md:block text-white/85 font-serif text-lg leading-relaxed 
              mx-auto text-center md:text-left"
   style={{
     writingMode: "vertical-rl",
