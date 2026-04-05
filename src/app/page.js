@@ -152,16 +152,17 @@ const close = () => {
             
 
             <div className="hidden md:flex justify-end">
-              <div
-                className="text-white/85 font-serif text-lg leading-relaxed"
-                style={{
-                  writingMode: "vertical-rl",
-                  textOrientation: "mixed",
-                  letterSpacing: "0.18em",
-                }}
-              >
-                加賀橋立 — 受け継がれる時間
-              </div>
+           <div
+  className="text-white/85 font-serif text-lg leading-relaxed 
+             mx-auto text-center md:text-left"
+  style={{
+    writingMode: "vertical-rl",
+    textOrientation: "mixed",
+    letterSpacing: "0.18em",
+  }}
+>
+  加賀橋立 — 受け継がれる時間
+</div>
             </div>
 
             <div className="md:hidden">
