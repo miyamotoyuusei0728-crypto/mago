@@ -1382,7 +1382,8 @@ return (
   id="access"
   className="w-full scroll-mt-24 bg-[#2b2b2b] py-14 md:py-20"
 >
-  <div className="mx-auto max-w-4xl px-4 md:px-6">
+  <div className="mx-auto max-w-3xl px-4 md:px-6">
+    
     {/* heading */}
     <div className="flex items-end justify-between gap-4">
       <div>
@@ -1404,65 +1405,52 @@ return (
           relative overflow-hidden
           border border-[#d6c7a1]/35
           bg-white
-          p-6 md:p-9
+          p-7 md:p-10
           shadow-[0_14px_40px_rgba(0,0,0,0.10)]
         "
       >
-        {/* top accent */}
+        {/* ゴールドライン */}
         <div className="absolute left-0 top-0 h-[1px] w-full bg-[#c6a356]" />
 
-        <div className="grid gap-8 md:grid-cols-[1.2fr_auto] md:items-end">
-          <div>
-            <p className="font-serif text-xs tracking-[0.28em] text-neutral-500">
-              LOCATION
-            </p>
+        {/* LOCATION */}
+        <p className="font-serif text-xs tracking-[0.28em] text-neutral-500">
+          LOCATION
+        </p>
 
-            <p className="mt-4 font-serif text-base leading-8 text-neutral-800 md:text-lg">
-              MAGONDO
-              <br />
-              石川県加賀市橋立町ム-2
-            </p>
+        <p className="mt-5 font-serif text-base md:text-lg leading-8 text-neutral-800">
+          MAGONDO
+          <br />
+          石川県加賀市橋立町ム-2
+        </p>
 
-            <dl className="mt-8 space-y-4 text-sm text-neutral-600">
-              <div className="flex gap-4 border-b border-neutral-200/80 pb-3">
-                <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
-                  TRAIN
-                </dt>
-                <dd className="leading-7">JR加賀温泉駅から車で15分</dd>
-              </div>
-
-              <div className="flex gap-4 border-b border-neutral-200/80 pb-3">
-                <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
-                  CAR
-                </dt>
-                <dd className="leading-7">片山津ICから10分</dd>
-              </div>
-
-              <div className="flex gap-4 pb-1">
-                <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
-                  PARKING
-                </dt>
-                <dd className="leading-7">あり（無料）</dd>
-              </div>
-            </dl>
+        {/* 情報 */}
+        <dl className="mt-10 space-y-4 text-sm text-neutral-600">
+          <div className="flex gap-4 border-b border-neutral-200/80 pb-3">
+            <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
+              TRAIN
+            </dt>
+            <dd className="leading-7">JR加賀温泉駅から車で15分</dd>
           </div>
 
-          {/* address sub block */}
-          <div className="border-l-0 border-t border-neutral-200 pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-            <p className="font-serif text-xs tracking-[0.24em] text-neutral-500">
-              POSTAL ADDRESS
-            </p>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">
-              〒922-0554
-              <br />
-              石川県加賀市橋立町ム-2
-            </p>
+          <div className="flex gap-4 border-b border-neutral-200/80 pb-3">
+            <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
+              CAR
+            </dt>
+            <dd className="leading-7">片山津ICから10分</dd>
           </div>
-        </div>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="flex gap-4">
+            <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
+              PARKING
+            </dt>
+            <dd className="leading-7">あり（無料）</dd>
+          </div>
+        </dl>
+
+        {/* ボタン */}
+        <div className="mt-10 flex flex-col sm:flex-row gap-3">
           <a
-            href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z/data=!3m1!4b1!4m9!3m8!1s0x5ff8f9c3dc5cc69b:0x49446a19448de165!5m2!4m1!1i2!8m2!3d36.3511956!4d136.3101328!16s%2Fg%2F11l20c0ljf?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
+            href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z"
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -1477,7 +1465,6 @@ return (
           </a>
 
           <button
-            type="button"
             onClick={() =>
               navigator.clipboard.writeText(
                 "〒922-0554 石川県加賀市橋立町ム-2"
@@ -1497,6 +1484,7 @@ return (
       </div>
     </div>
 
+    {/* 下ライン */}
     <div className="mt-10 h-px w-full bg-[#c6a356]/35 md:mt-14" />
   </div>
 </section>
