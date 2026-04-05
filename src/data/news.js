@@ -34,23 +34,7 @@ export const newsItems = [
       { label: "ご予約はこちら", href: "/#reserve" },
     ],
   },
-  {
-    date: "2026.03.01",
-    category: "LOCAL",
-    title: "橋立を歩く、小さな案内",
-    text: "北前船の物語が残る港町・橋立を、ゆっくり歩いて楽しむための小さなご案内です。",
-    slug: "hashitate-walk-guide",
-    image: "/images/news/hashitate.jpg",
-    body: [
-      "MAGONDOのある橋立は、北前船の歴史が息づく港町です。",
-      "石畳の道や、静かな町並み、海の近さを感じながら、ゆっくりと歩く時間をおすすめしています。",
-      "滞在の合間に、橋立の空気そのものを味わってみてください。",
-    ],
-    links: [
-      { label: "周辺情報", href: "/#gallery" },
-      { label: "ホームに戻る", href: "/" },
-    ],
-  },
+  
   {
     date: "2026.02.22",
     category: "STAY",
@@ -77,17 +61,5 @@ export const newsItems = [
     ],
     links: [{ label: "ホームに戻る", href: "/" }],
   },
-  {
-    date: "2026.02.01",
-    category: "CAFE",
-    title: "静かな夜の過ごし方",
-    text: "夜のMAGONDOでおすすめしたい、ゆっくりとした時間の過ごし方。",
-    slug: "quiet-night-stay",
-    image: "/images/news/night.jpg",
-    body: [
-      "明かりを落とした夜の時間は、MAGONDOらしさを感じやすいひとときです。",
-      "読書や手紙、珈琲の時間など、静かな過ごし方をおすすめしています。",
-    ],
-    links: [{ label: "宿の魅力を見る", href: "/#experience" }],
-  },
+  
 ];
