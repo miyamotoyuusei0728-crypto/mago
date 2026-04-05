@@ -8,7 +8,7 @@ export default function ShopsPage() {
   const ENJI_HEX = "#6b1c2a";
 
   // ==== ここだけ実URLに差し替えてOK ====
-  const BOOKING_URL = "https://example.com/booking"; // 予約ページ
+  const BOOKING_URL = "https://vacation-stay.jp/listings/666651?adults=2"; // 予約ページ
   const TEL_NUMBER = "090-1234-5678"; // 電話番号（ハイフンOK）
   const TEL_HREF = `tel:${TEL_NUMBER.replace(/-/g, "")}`;
 
