@@ -165,11 +165,11 @@ const close = () => {
 </div>
             </div>
 
-            <div className="md:hidden">
-              <p className="text-white/80 text-xs tracking-[0.28em] font-serif">
-                加賀橋立 — 受
-              </p>
-            </div>
+           <div className="md:hidden text-center">
+  <p className="text-white/80 text-xs tracking-[0.28em] font-serif mx-auto">
+    加賀橋立 — 受け継がれる時間
+  </p>
+</div>
           </div>
         </div>
       </div>
