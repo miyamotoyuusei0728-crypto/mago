@@ -161,13 +161,13 @@ const close = () => {
     letterSpacing: "0.18em",
   }}
 >
-  加賀受け継がれる時間
+  加賀橋立 — 受け継がれる時間
 </div>
             </div>
 
             <div className="md:hidden">
               <p className="text-white/80 text-xs tracking-[0.28em] font-serif">
-                加賀橋立 — 受け継がれる時間
+                加賀橋立 — 受
               </p>
             </div>
           </div>
