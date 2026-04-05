@@ -65,7 +65,7 @@ export default function diningPage() {
       { label: "喫煙", value: "不可" },
       { label: "イベント・パーティ", value: "可" },
     ],
-    bookingUrl: "https://vacation-stay.jp/listings/666651?adults=2",
+    bookingUrl: "https://vacation-stay.jp/listings/666665?adults=2",
     telUrl: "tel:0000000000",
     mapUrl: "#",
   };
