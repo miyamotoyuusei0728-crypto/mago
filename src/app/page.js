@@ -1378,16 +1378,18 @@ return (
 </section>
 
 {/* Access */}
-<section id="access" className="w-full py-16 scroll-mt-24 bg-[#2b2b2b]">
-  <div className="mx-auto max-w-5xl px-4">
-
-    {/* 見出し */}
+<section
+  id="access"
+  className="w-full scroll-mt-24 bg-[#2b2b2b] py-14 md:py-20"
+>
+  <div className="mx-auto max-w-4xl px-4 md:px-6">
+    {/* heading */}
     <div className="flex items-end justify-between gap-4">
       <div>
-        <p className="text-xs tracking-[0.35em] text-neutral-300 font-serif">
+        <p className="font-serif text-xs tracking-[0.35em] text-neutral-300">
           ACCESS
         </p>
-        <h2 className="mt-2 text-xl md:text-2xl text-white font-serif tracking-[0.15em]">
+        <h2 className="mt-2 font-serif text-xl tracking-[0.14em] text-white md:text-2xl">
           アクセス
         </h2>
       </div>
@@ -1395,95 +1397,107 @@ return (
       <div className="hidden sm:block h-px w-24 bg-[#c6a356]" />
     </div>
 
-    {/* 本体 */}
-    <div className="mt-10 grid md:grid-cols-2 gap-8">
-
-      {/* Infoカード */}
+    {/* card */}
+    <div className="mt-8 md:mt-10">
       <div
         className="
-          relative
-          border border-[#d6c7a1]/40
+          relative overflow-hidden
+          border border-[#d6c7a1]/35
           bg-white
-          p-8
-          shadow-[0_12px_40px_rgba(0,0,0,0.08)]
+          p-6 md:p-9
+          shadow-[0_14px_40px_rgba(0,0,0,0.10)]
         "
       >
-        {/* ゴールドライン（上） */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-[#c6a356]" />
+        {/* top accent */}
+        <div className="absolute left-0 top-0 h-[1px] w-full bg-[#c6a356]" />
 
-        <h3 className="text-sm tracking-[0.25em] text-neutral-500 font-serif">
-          LOCATION
-        </h3>
+        <div className="grid gap-8 md:grid-cols-[1.2fr_auto] md:items-end">
+          <div>
+            <p className="font-serif text-xs tracking-[0.28em] text-neutral-500">
+              LOCATION
+            </p>
 
-        <p className="mt-4 text-base text-neutral-800 leading-relaxed font-serif">
-          MAGONDO<br />
-          石川県加賀市橋立町ム-2
-        </p>
+            <p className="mt-4 font-serif text-base leading-8 text-neutral-800 md:text-lg">
+              MAGONDO
+              <br />
+              石川県加賀市橋立町ム-2
+            </p>
 
-        {/* 情報 */}
-        <dl className="mt-8 space-y-4 text-sm text-neutral-600">
-          <div className="flex gap-4">
-            <dt className="w-20 text-neutral-400 tracking-widest">TRAIN</dt>
-            <dd>JR加賀温泉駅から車で15分</dd>
+            <dl className="mt-8 space-y-4 text-sm text-neutral-600">
+              <div className="flex gap-4 border-b border-neutral-200/80 pb-3">
+                <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
+                  TRAIN
+                </dt>
+                <dd className="leading-7">JR加賀温泉駅から車で15分</dd>
+              </div>
+
+              <div className="flex gap-4 border-b border-neutral-200/80 pb-3">
+                <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
+                  CAR
+                </dt>
+                <dd className="leading-7">片山津ICから10分</dd>
+              </div>
+
+              <div className="flex gap-4 pb-1">
+                <dt className="w-20 shrink-0 tracking-[0.18em] text-neutral-400">
+                  PARKING
+                </dt>
+                <dd className="leading-7">あり（無料）</dd>
+              </div>
+            </dl>
           </div>
 
-          <div className="flex gap-4">
-            <dt className="w-20 text-neutral-400 tracking-widest">CAR</dt>
-            <dd>片山津ICから10分</dd>
+          {/* address sub block */}
+          <div className="border-l-0 border-t border-neutral-200 pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0">
+            <p className="font-serif text-xs tracking-[0.24em] text-neutral-500">
+              POSTAL ADDRESS
+            </p>
+            <p className="mt-3 text-sm leading-7 text-neutral-700">
+              〒922-0554
+              <br />
+              石川県加賀市橋立町ム-2
+            </p>
           </div>
+        </div>
 
-          <div className="flex gap-4">
-            <dt className="w-20 text-neutral-400 tracking-widest">PARKING</dt>
-            <dd>あり（無料）</dd>
-          </div>
-        </dl>
-
-        {/* ボタン */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-3">
-
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
-            href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z"
+            href="https://www.google.com/maps/place/MAGONDO/@36.3511999,136.3075579,17z/data=!3m1!4b1!4m9!3m8!1s0x5ff8f9c3dc5cc69b:0x49446a19448de165!5m2!4m1!1i2!8m2!3d36.3511956!4d136.3101328!16s%2Fg%2F11l20c0ljf?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="
-              text-center
+              inline-flex items-center justify-center
               border border-[#c6a356]
               px-5 py-3
-              text-xs tracking-widest text-[#c6a356]
-              transition
-              hover:bg-[#c6a356] hover:text-white
+              text-xs tracking-[0.22em] text-[#c6a356]
+              transition hover:bg-[#c6a356] hover:text-white
             "
           >
-            GOOGLE MAP →
+            GOOGLE MAP ↗
           </a>
 
           <button
+            type="button"
             onClick={() =>
-              navigator.clipboard.writeText("〒922-0554 石川県加賀市橋立町ム-2")
+              navigator.clipboard.writeText(
+                "〒922-0554 石川県加賀市橋立町ム-2"
+              )
             }
             className="
+              inline-flex items-center justify-center
               border border-neutral-300
               px-5 py-3
-              text-xs tracking-widest text-neutral-600
-              transition
-              hover:bg-neutral-100
+              text-xs tracking-[0.22em] text-neutral-700
+              transition hover:bg-neutral-100
             "
           >
-            COPY ADDRESS
+            住所をコピー
           </button>
-
         </div>
       </div>
-
-      {/* 右側：余白 or 将来マップ */}
-      <div className="hidden md:block border border-dashed border-neutral-500/30 flex items-center justify-center text-neutral-400 text-sm">
-        MAP COMING SOON
-      </div>
-
     </div>
 
-    {/* 下ライン */}
-    <div className="mt-16 h-px w-full bg-[#c6a356]/40" />
+    <div className="mt-10 h-px w-full bg-[#c6a356]/35 md:mt-14" />
   </div>
 </section>
 
