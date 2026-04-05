@@ -30,7 +30,7 @@ export default function Site() {
     window.scrollTo(0, 0);
   }
 }, []);
-function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.svg" }) {
+function Cover({ ENJI, bgImage = "/images/introne.jpg", logoSrc = "/images/logo.PNG" }) {
 
   const [done, setDone] = useState(false);
   const [leaving, setLeaving] = useState(false); // フェード用
