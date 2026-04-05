@@ -161,7 +161,7 @@ const close = () => {
     letterSpacing: "0.18em",
   }}
 >
-  加賀橋立 — 受け継がれる時間
+  加賀受け継がれる時間
 </div>
             </div>
 
